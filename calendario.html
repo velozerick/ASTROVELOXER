@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTROVELOXER</title>
+    
+    <!--font awesomw cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Css file link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li><a href="calendario.html">Calendario astronomico</a></li>
+                <li><a href="eiemex">EIEMEX proximamente</a></li>
+            </ul>
+            <ul>
+                <li><a href="index.html">ASTROVELOXER</a></li>
+                <li class="hideOnMobile"><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li class="hideOnMobile"><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li class="hideOnMobile"><a href="calendario.html">Calendario astronomico</a></li>
+                <li class="hideOnMobile"><a href="eiemex">EIEMEX proximamente</a></li>
+                <li class="menu-but" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="34px"
+                     viewBox="0 -960 960 960" width="34px" fill="#e8eaed"><path
+                      d="M120-280v-80h560v80H120Zm80-160v-80h560v80H200Zm80-160v-80h560v80H280Z"/></svg></a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    
+    <!--HOME SECTION-->
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3> No te pierdas ningun evento!
+            </h3>
+            <p>todos los eventos astronomicos dia a dia.</p>
+        </div>
+    </section>
+       
+
+
+     <!-- Calendario astronómico -->
+
+     <div class="contain">
+        <div class="left">
+            <div class="calendar">
+              <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">diciembre 2015</div>
+                <i class="fas fa-angle-right next"></i>
+              </div>
+              <div class="weekdays">
+                <div>Dom</div>
+                <div>Lun</div>
+                <div>Mar</div>
+                <div>Mier</div>
+                <div>Jue</div>
+                <div>Vie</div>
+                <div>Sab</div>
+              </div>
+              <div class="days"></div>
+              <div class="goto-today">
+                <div class="goto">
+                  <input type="text" placeholder="mm/yyyy" class="date-input" />
+                  <button class="goto-btn">Ir</button>
+                </div>
+                <button class="today-btn">Hoy</button>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="today-date">
+              <div class="event-day">wed</div>
+              <div class="event-date">12th december 2022</div>
+            </div>
+            <div class="events"></div>
+            <div class="add-event-wrapper">
+              <div class="add-event-header">
+                <div class="title">Add Event</div>
+                <i class="fas fa-times close"></i>
+              </div>
+
+
+
+             
+              <div class="add-event-body">
+                <div class="add-event-input">
+                  <input type="text" placeholder="Event Name" class="event-name" />
+                </div>
+                <div class="add-event-input">
+                  <input
+                    type="text"
+                    placeholder="Event Time From"
+                    class="event-time-from"
+                  />
+                </div>
+                <div class="add-event-input">
+                  <input
+                    type="text"
+                    placeholder="Event Time To"
+                    class="event-time-to"
+                  />
+                </div>
+              </div>
+              <div class="add-event-footer">
+                <button class="add-event-btn">Add Event</button>
+              </div>
+            </div>
+          </div>
+          
+         <button class="add-event">
+            <i class="fas fa-plus"></i>
+         </button>
+        </div> 
+    
+    
+ 
+
+
+
+
+    
+
+
+
+  
+    <footer class="footer">
+        <p>&copy; ASTROVELOXER</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

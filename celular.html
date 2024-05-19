@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrofotografia Celular</title>
+    
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Css file link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li><a href="calendario.html">Calendario astronomico</a></li>
+                <li><a href="eiemex">EIEMEX proximamente</a></li>
+            </ul>
+            <ul>
+                <li><a href="index.html">ASTROVELOXER</a></li>
+                <li class="hideOnMobile"><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li class="hideOnMobile"><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li class="hideOnMobile"><a href="calendario.html">Calendario astronomico</a></li>
+                <li class="hideOnMobile"><a href="eiemex">EIEMEX proximamente</a></li>
+                <li class="menu-but" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="34px"
+                     viewBox="0 -960 960 960" width="34px" fill="#e8eaed"><path
+                      d="M120-280v-80h560v80H120Zm80-160v-80h560v80H200Zm80-160v-80h560v80H280Z"/></svg></a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    
+
+    <!-- Barra de navegación secundaria -->
+    <nav class="barg">
+        <ul class="navi-lista">
+            <li class="navi-item"><a href="#equipo">Equipo</a></li>
+            <li class="navi-item"><a href="#captura">Captura</a></li>
+            <li class="navi-item dropdown">
+                <a href="#procesamiento">Procesamiento de Imágenes</a>
+                <ul class="submenu">
+                    <li class="navi-item" ><a href="#pipp">PIPP</a></li>
+                    <li class="navi-item" ><a href="#autostakkert">AUTOSTAKKERT</a></li>
+                    <li class="navi-item" ><a href="#registax">RegiStax</a></li>
+                </ul>
+            </li>
+            <li class="navi-item"><a href="#conclusion">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+
+
+
+
+    <main class="main-content">
+
+
+        <section id="equipo" class="section">
+            <section class="cel" id="Iniciar">
+                <h1 class="titulo"><span>E</span>quipo</h1>
+                <div class="row">
+                    <div class="image">
+                        <img src="imgs/cel.jpg" alt="nosotros">
+                    </div>
+                    <div class="cont">
+                        <p>La astrofotografía con un teléfono celular es una excelente manera de 
+                            comenzar a explorar el cielo nocturno y capturar impresionantes imágenes
+                             de estrellas, la Luna, planetas y otros objetos celestes. En esta guía,
+                              aprenderás cómo hacer astrofotografía con tu teléfono, desde los conceptos
+                               básicos hasta algunos consejos avanzados.</p>
+                            <ul class="list">
+                                <li>Telefono celular</li>
+                                <p>Cualquier teléfono celular moderno con una cámara de alta resolución puede ser utilizado para astrofotografía.</p>
+                                <li>tripode</li>
+                                <p>Un trípode estable es esencial para mantener el teléfono inmóvil durante la captura de imágenes.</p>
+                                <li>Mapa estelar</li>
+                                <p> Instala una aplicación de mapas estelares para identificar y ubicar objetos celestes en el cielo.</p>
+                                <li>Telescopio (opcional)</li>
+                                <p> Si tienes acceso a un telescopio, puedes acoplar tu teléfono celular a él para capturar imágenes más detalladas de objetos celestes.</p>
+                            </ul>
+                            
+                    </div>
+                </div>
+           
+        </section>
+
+        <section id="captura" class="section">
+            <section class="cel" id="Iniciar">
+                <h1 class="titulo"><span>C</span>aptura</h1>
+                <div class="row">
+                    
+                    <div class="cont">
+                        <section class="section">
+                            <p class="section-text"></p>
+                            <ul class="list-cont">
+                                <li class="listas">Activa el Modo de Avión Para evitar interferencias, activa el modo de avión en tu celular.</li>
+                                <div class="guide-content"> <img class="img-guide" src="imgs/IMG_1131.PNG" alt=""></div>
+                                <li class="listas">En la aplicacion de camara de tu celular busca la opcion de modo profesional (pro) o el temporizador de exposicion. </li>
+                               <div class="guide-content"> <img class="img-guide" src="imgs/IMG_1130.PNG" alt=""></div>
+                                <li class="listas"> Desactiva el enfoque automático(focus) y configura el enfoque manualmente para evitar que la cámara cambie el enfoque durante la captura. (las estrellas deben de visualizarse como puntos blancos finos )</li>    
+                                <div class="guide-content"> <img class="img-guide" src="imgs/IMG_1130.PNG" alt=""></div>            
+                                <li class="listas">Utiliza un temporizador o un control remoto para evitar el movimiento del teléfono al tocar el botón de captura. </li>   
+                                <div class="guide-content"> <img class="img-guide" src="imgs/IMG_1132.PNG" alt=""></div>      
+                                <li class="listas">Ajusta la sensibilidad ISO y el tiempo de exposición según las condiciones de iluminación y el objeto que deseas fotografiar. Empieza con valores bajos y ve ajustando según sea necesario.</li>   
+                                <div class="guide-content"> <img class="img-guide" src="imgs/IMG_1132.PNG" alt=""></div>         
+                                <li class="listas-ext">Felicidades! has capturado tu objeto </li>   
+                                <div class="guide-content"> <img class="img-guide" src="imgs/iphone.jpg" alt=""></div>  
+                                <li class="listas-ext"> Pero eso no es todo. Estos pasos no solo te permiten fotografiar el cielo nocturno, sino que también pueden adaptarse para utilizar el ocular de un
+                                     telescopio con el adaptador correspondiente. Es decir, puedes seguir estos mismos pasos para capturar imágenes no solo con tu celular, sino también con un telescopio,
+                                      aprovechando su potencial para observar el cosmos. </li>   
+                                      <div class="guide-content"> <img class="img-guid" src="imgs/QA5E.jpg" alt=""></div>  
+                
+                
+                            </ul>
+                        </section>
+                            
+                    </div>
+                </div>
+           
+        </section>
+
+
+        <section id="procesamiento" class="section">
+            <section class="cel" id="Iniciar">
+                <h1 class="titulo"><span>Procesamiento</span>imagenes</h1>
+                <div class="row">
+                    <div class="image">
+                        <img src="imgs/cel.jpg" alt="nosotros">
+                    </div>
+                    <div class="cont">
+                        <p>Una vez que has capturado tus imágenes de planetas o del sistema solar con tu celular y un telescopio, 
+                            el procesamiento es una parte crucial para obtener los mejores resultados. Aquí te guiaremos a través de 
+                            los pasos básicos utilizando software especializado como PIPP, Autostakkert y RegiStax.</p>
+                            <ul class="list">
+                                <li class="list-title">PIPP</li> <a class="pipp" href="https://www.rsastro.com/downloads/" target="_blank"> Descarga PIPP!</a>
+                                <p>Este es el primer programa que debemos utilizar y servirá para alinear los cuadros del vídeo logrado con nuestra cámara.</p>
+                                <li class="list-title">Autostakkert</li> <a class="pipp" href="https://www.autostakkert.com/wp/download/" target="_blank"> Descarga AUTOSTAKKERT!</a>
+                                <p>Autostakkert alineará y apilará automáticamente las imágenes, seleccionando las mejores partes de cada una para mejorar la calidad general.</p>
+                                <li class="list-title">RegiStax</li> <a class="pipp" href="https://www.astronomie.be/registax/index.html" target="_blank">Descarga RegiStax 6! </a>
+                                <p>  especializado en procesamiento de imágenes astronómicas, especialmente diseñado para mejorar la calidad y el detalle de imágenes planetarias y lunares.</p>
+                            </ul>
+                            
+                    </div>
+                </div>
+           
+        </section>
+
+
+        <section id="procesamiento" class="section">
+            <section class="cel" id="Iniciar">
+                
+                <div class="row">
+                    
+                    <div class="cont">
+                        <section id="pipp" class="section">
+                            <h1 class="titulo"><span>Tutorial</span>PIPP</h1>
+                            <center> <video  src="imgs/PIPP_ASTROVELOXER.mp4" controls width="1300"></video></center>
+                            
+                            
+                          
+                        </section>
+                            
+                    </div>
+                </div>
+           
+        </section>
+        </section>
+
+
+
+        
+        <section id="autostakkert" class="section">
+            <section class="cel" id="Iniciar">
+                
+                <div class="row">
+                    
+                    <div class="cont">
+                        <section id="pipp" class="section">
+                            <h1 class="titulo"><span>Tutorial</span>AUTOSTAKKERT</h1>
+                            <center> <video  src="imgs/AUTOSTAKKERT_ASTROVELOXER.mp4" controls width="1300"></video></center>
+                        </section>
+                            
+                    </div>
+                </div>
+           
+        </section>
+        </section>
+
+        <section id="autostakkert" class="section">
+            <section class="cel" id="Iniciar">
+                
+                <div class="row">
+                    
+                    <div class="cont">
+                        <section id="registax" class="section">
+                            <h1 class="titulo"><span>Tutorial</span>REGISTAX</h1>
+                            <center> <video  src="imgs/AUTOSTAKKERT_ASTROVELOXER.mp4" controls width="1300"></video></center>
+                        </section>
+                            
+                    </div>
+                </div>
+           
+        </section>
+        </section>
+
+
+
+        
+
+
+
+    </main>
+
+
+
+
+
+
+   
+    <footer class="footer">
+        <p>&copy; ASTROVELOXER</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como iniciar?</title>
+    
+    <!--font awesome cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Css file link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li><a href="calendario">Calendario astronomico</a></li>
+                <li><a href="eiemex">EIEMEX proximamente</a></li>
+            </ul>
+            <ul>
+                <li><a href="index.html">ASTROVELOXER</a></li>
+                <li class="hideOnMobile"><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li class="hideOnMobile"><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li class="hideOnMobile"><a href="calendario.html">Calendario astronomico</a></li>
+                <li class="hideOnMobile"><a href="eiemex">EIEMEX proximamente</a></li>
+                <li class="menu-but" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="34px"
+                     viewBox="0 -960 960 960" width="34px" fill="#e8eaed"><path
+                      d="M120-280v-80h560v80H120Zm80-160v-80h560v80H200Zm80-160v-80h560v80H280Z"/></svg></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--NOSOTROS SECTION-->
+    <section class="nosotros" id="Iniciar">
+        <h1 class="heading"><span>Como</span>iniciar?</h1>
+        <div class="row">
+            <div class="image">
+                <img src="imgs/OIG2.jfif" alt="nosotros">
+            </div>
+            <div class="content">
+                <h3>todo inicia con una pregunta</h3>
+                <p>Descubre los secretos del universo a través de tu cámara. 
+                    Aprende cómo iniciar en la astrofotografía y captura las maravillas del cielo nocturno</p>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="imgs/secret.jpg" class="card-img" alt="">
+                <div class="card-body">
+                    <h1 class="card-title">ASTROFOTOGRAFIA</h1>
+                    <p class="card-text">
+                        La astrofotografía con cámara dedicada te permite capturar el universo con
+                         una calidad excepcional. capturando las detalladas nebulosas y galaxias, 
+                         aprende a utilizar tu cámara junto con accesorios como trípodes y monturas para capturar imágenes espectaculares.</p>
+                         <a href="Camara.html"><button class="card-btn">Camara</button></a>
+                </div>
+            </div>
+
+            <!-- Aquí se agrega la segunda card duplicada -->
+            <div class="card">
+                <img src="imgs/astrofoto.jpg" class="card-img" alt="">
+                <div class="card-body">
+                    <h1 class="card-title">ASTROFOTOGRAFIA</h1>
+                    <p class="card-text">
+                        puedes capturar impresionantes imágenes utilizando simplemente tu celular.
+                         Desde la Vía Láctea hasta los planetas, aprende a aprovechar al máximo la cámara de tu celular
+                           para capturar el universo de manera fácil y accesible.
+                    </p>
+                    <a href="celular.html"><button class="card-btn">Celular</button></a>
+
+                </div>
+            </div>
+            <!-- Fin de la segunda card duplicada -->
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; ASTROVELOXER</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

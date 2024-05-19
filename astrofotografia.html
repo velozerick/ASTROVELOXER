@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrofotografia</title>
+    
+    <!--font awesomw cdn link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Css file link -->
+    <link rel="stylesheet" href="style.css">
+
+     <!-- magnific-popup css cdn link  -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+
+
+</head>
+<body>
+    <div class="stars"></div>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li><a href="calendario.html">Calendario astronomico</a></li>
+                <li><a href="eiemex">EIEMEX proximamente</a></li>
+            </ul>
+            <ul>
+                <li><a href="index.html">ASTROVELOXER</a></li>
+                <li class="hideOnMobile"><a href="Como iniciar.html">Como iniciar?</a></li>
+                <li class="hideOnMobile"><a href="astrofotografia.html">Astrofotografia</a></li>
+                <li class="hideOnMobile"><a href="calendario.html">Calendario astronomico</a></li>
+                <li class="hideOnMobile"><a href="eiemex">EIEMEX proximamente</a></li>
+                <li class="menu-but" onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="34px"
+                     viewBox="0 -960 960 960" width="34px" fill="#e8eaed"><path
+                      d="M120-280v-80h560v80H120Zm80-160v-80h560v80H200Zm80-160v-80h560v80H280Z"/></svg></a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    
+    <!--HOME SECTION-->
+    <section>
+       
+        <ul class="galeria">
+            <li class="active">Todo</li>
+            <li class="gal-li">Planetas</li>
+            <li class="gal-li">Nebulosas</li>
+            <li class="gal-li">Cumulos</li>
+            <li class="gal-li">Galaxias</li>
+        </ul>
+
+        <div class="product">
+            <img src="imgs/M101_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/BODE_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/Caldwell38_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/Lunar.jpg" data-filter="planetas">
+            <img src="imgs/jup11.jpg" data-filter="planetas">
+            <img src="imgs/jup,mar,sat.jpg" data-filter="planetas">
+            <img src="imgs/Markarian_chain.png" data-filter="galaxias">
+            <img src="imgs/M 03.jpg" data-filter="cumulos">
+            <img src="imgs/omega.jpg" data-filter="cumulos">
+            <img src="imgs/ORION-velozeronly.jpg" data-filter="nebulosas">
+            <img src="imgs/Lagoon.jpg" data-filter="nebulosas">
+            <img src="imgs/M101_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/BODE_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/Caldwell38_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/Lunar.jpg" data-filter="planetas">
+            <img src="imgs/jup11.jpg" data-filter="planetas">
+            <img src="imgs/jup,mar,sat.jpg" data-filter="planetas">
+            <img src="imgs/Markarian_chain.png" data-filter="galaxias">
+            <img src="imgs/M 03.jpg" data-filter="cumulos">
+            <img src="imgs/omega.jpg" data-filter="cumulos">
+            <img src="imgs/ORION-velozeronly.jpg" data-filter="nebulosas">
+            <img src="imgs/Lagoon.jpg" data-filter="nebulosas">
+            <img src="imgs/M101_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/BODE_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/Caldwell38_ASTROVELOXER.jpg" data-filter="galaxias">
+            <img src="imgs/Lunar.jpg" data-filter="planetas">
+            <img src="imgs/jup11.jpg" data-filter="planetas">
+            <img src="imgs/jup,mar,sat.jpg" data-filter="planetas">
+            <img src="imgs/Markarian_chain.png" data-filter="galaxias">
+            <img src="imgs/M 03.jpg" data-filter="cumulos">
+            <img src="imgs/omega.jpg" data-filter="cumulos">
+            <img src="imgs/ORION-velozeronly.jpg" data-filter="nebulosas">
+            <img src="imgs/Lagoon.jpg" data-filter="nebulosas">
+         
+        </div>
+    </section>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const liItems = document.querySelectorAll('ul.galeria li');
+    const imgItems = document.querySelectorAll('.product img');
+    const imgContainers = document.querySelectorAll('.imgc');
+
+    liItems.forEach(li => {
+        li.addEventListener("click", function() {
+            const filter = this.textContent.toLowerCase();
+            
+           
+            imgItems.forEach(img => {
+                if (filter === "todo" || img.getAttribute('data-filter') === filter) {
+                    img.style.display = 'block';
+                } else {
+                    img.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    imgContainers.forEach(container => {
+        const img = container.querySelector('img');
+        const overlay = container.querySelector('.overlay');
+
+        container.addEventListener("click", function() {
+            img.classList.toggle("enlarged");
+            overlay.classList.toggle("show-text");
+        });
+    });
+});
+
+
+
+        </script>
+
+
+
+
+    
+
+  
+    <footer class="footer">
+        <p>&copy; ASTROVELOXER</p>
+    </footer>
+    
+</body>
+</html>
