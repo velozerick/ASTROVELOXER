@@ -27,7 +27,7 @@ document.addEventListener("scroll", function() {
 
     // Ajustar los colores del degradado sin opacidad para evitar el aclarado
     const colorChange = `linear-gradient(to bottom, 
-        rgb(204, 82, 61),  /* Atardecer más oscuro */
+        rgb(200, 82, 61),  /* Atardecer más oscuro */
         rgb(50, 8, 60),    /* Tono de transición más oscuro */
         rgb(1, 5, 20),     /* Crepúsculo aún más oscuro */
         rgba(0, 0, 0, 1))`;  /* Noche constante al final */

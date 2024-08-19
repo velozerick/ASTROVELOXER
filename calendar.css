@@ -218,7 +218,7 @@ body {
     font-family: Arial, sans-serif;
     overflow-x: hidden;
     background-color: #00000062; /* Fondo oscuro sólido */
-    color: white;
+    color: rgb(15, 15, 15);
     transition: background-color 1s ease;
 }
 .calendar-container {
