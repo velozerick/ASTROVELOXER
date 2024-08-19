@@ -57,7 +57,7 @@
 <section class="como-iniciar" id="como-iniciar">
     <h1 class="heading"><span>Cómo</span> <span>Iniciar</span> en Astrofotografía</h1>
     <div class="restricted-message">
-        <p>Para acceder a la guía completa sobre cómo iniciar en astrofotografía por favor <a href="inicio_sesion.html" id="login-link">inicia sesión</a> o <a href="registro.html" id="register-link">regístrate</a>.</p>
+        <p>Para acceder a la guía completa sobre cómo iniciar en astrofotografía por favor <a href="inicio_sesion.php" id="login-link">inicia sesión</a> o <a href="registro.php" id="register-link">regístrate</a>.</p>
     </div>
 </section>
 
@@ -79,3 +79,6 @@
     <script src="astroveloxer.js"></script>
 </body>
 </html>
+
+
+<!--http://localhost/ASTROVELOXER/Astrov_user.php >

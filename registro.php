@@ -15,17 +15,17 @@
     <div class="login-box">
         <h1 class="main-title">Astroveloxer</h1>
         <h2>Regístrate</h2>
-        <form action="signup.php" method="POST">
+        <form action="php/registro_usuario_be.php" method="POST">
             <div class="user-box">
-                <input type="text" name="username" required="">
+            <input type="text" placeholder="Nombre" name="nombre" required />
                 <label>Nombre de Usuario</label>
             </div>
             <div class="user-box">
-                <input type="email" name="email" required="">
+            <input type="email" placeholder="Email" name="email" required />
                 <label>Email</label>
             </div>
             <div class="user-box">
-                <input type="password" name="password" required="">
+            <input type="password" placeholder="Contraseña" name="contrasena" required />
                 <label>Contraseña</label>
             </div>
             <button type="submit" class="login-button">
@@ -35,7 +35,7 @@
                 <span></span>
                 Registrarse
             </button>
-            <a href="inicio_sesion.html" class="signup-link">
+            <a href="inicio_sesion.php" class="signup-link">
                 <span></span>
                 <span></span>
                 <span></span>
