@@ -424,14 +424,7 @@ section.nosotros .content p {
     margin-bottom: 90px; /* Más espacio entre párrafos */
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
+
 
 
 
