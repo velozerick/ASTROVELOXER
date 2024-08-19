@@ -1,0 +1,310 @@
+.main-title {
+    font-size: 4rem; /* Título en mayúsculas y grande */
+    margin-bottom: 20px;
+    color: #bbe2f5;
+    text-transform: uppercase;
+}
+
+.calendar-description {
+    font-size: 1.5rem; /* Aumento ligero del tamaño del texto descriptivo */
+    margin-bottom: 40px;
+    color: #99dcf7;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos generales para la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px;  /* Ancho de la barra de desplazamiento */
+    background-color: #1a1a1a;  /* Color de fondo de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1a2a3a;  /* Color del thumb (el "pulgar" de la barra) */
+    border-radius: 10px;  /* Bordes redondeados para el thumb */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  /* Sombra interna */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #4a91cc;  /* Color del thumb al hacer hover */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1a1a1a;  /* Color del track (la pista de la barra) */
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  /* Sombra interna */
+}
+
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.466);
+    padding: 0.4rem 0;
+    transition: background-color 0.3s;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav li {
+    position: relative;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 1.2rem; /* Tamaño de letra más pequeño */
+    color: #e8eaed;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
+
+.nav a::before, .nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #5fb2ff;
+    transition: width 0.5s ease;
+    opacity: 0.7;
+}
+
+.nav a::before {
+    top: 0;
+    left: 0;
+}
+
+.nav a::after {
+    bottom: 0;
+    right: 0;
+}
+
+.nav a:hover::before, .nav a:hover::after {
+    width: 100%;
+}
+
+.nav li:first-child {
+    margin-right: 90px; /* Espacio adicional en la versión de escritorio */
+}
+
+.nav li:nth-child(2) {
+    margin-left: 4rem; /* Añade espacio a la derecha de "ASTROVELOXER" */
+}
+
+/* Responsividad de la barra de navegación */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav li {
+        margin: 10px 0;
+    }
+
+    .nav a {
+        font-size: 1.8rem;
+        padding: 15px 0;
+    }
+
+    .nav li:first-child {
+        margin-right: 0; /* Elimina el margen extra en la versión móvil */
+    }
+}
+
+/* Estilos para el menú burger */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+
+.burger span {
+    width: 100%;
+    height: 4px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* Animación para la apertura de la Burger Bar */
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+}
+
+
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+}
+
+/* Fondo animado de estrellas */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 0.3s infinite alternate; 
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 1.5;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #00000062; /* Fondo oscuro sólido */
+    color: white;
+    transition: background-color 1s ease;
+}
+.calendar-container {
+
+    max-width: 900px;
+  margin: 100px auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.247);
+    color: #fff;
+    text-align: center;
+}
+
+.calendar-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.day, .empty {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.day:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.event {
+    background-color: #0055ff;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+
+.event-info {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: rgba(0, 85, 255, 0.9);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.event-info:hover {
+    background-color: rgba(0, 85, 255, 1);
+}
+
+.empty {
+    background-color: transparent;
+}
+
+
+/* Responsividad para el título principal y la descripción del calendario */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem; /* Reducir el tamaño del título en pantallas más pequeñas */
+    }
+
+    .calendar-description {
+        font-size: 1.2rem; /* Ajustar ligeramente el tamaño de la descripción en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.5rem; /* Aún más pequeño para pantallas muy pequeñas */
+    }
+
+    .calendar-description {
+        font-size: 1rem; /* Reducir aún más la descripción en pantallas muy pequeñas */
+    }
+}
