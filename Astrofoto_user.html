@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrofotografía</title>
+    <link rel="stylesheet" href="Astroveloxer.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <!-- Barra de Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav">
+                <li><a href="Astrov_user.html">ASTROVELOXER</a></li>
+                <li><a href="#astrofotografia">Astrofotografía</a></li>
+                <li><a href="calen_user.html">Calendario astronómico</a></li>
+                <li><a href="#" onclick="alert('La página EIEMEX aún no está disponible. ¡Vuelve pronto!');">EIEMEX Próximamente</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- HOME SECTION -->
+    <section class="explore-home" id="home">
+        <div class="explore-content">
+            <h3>Explora y Comparte el Cosmos</h3>
+            <p>Sumérgete en la belleza del universo a través de nuestra colección de imágenes astronómicas, y únete a la comunidad compartiendo tus propias capturas del cielo.</p>
+        </div>
+    </section>
+    
+
+    <!-- SECCIÓN DE ASTROFOTOGRAFÍA -->
+    <section class="astrofotografia" id="astrofotografia">
+        <h1 class="heading">Astrofotografía</h1>
+        
+        <!-- Filtros de imágenes -->
+        <div class="filter-buttons">
+            <button data-filter="all" class="active">Todo</button>
+            <button data-filter="nebulosa">Nebulosas</button>
+            <button data-filter="planeta">Planetas</button>
+            <button data-filter="galaxia">Galaxias</button>
+        </div>
+
+<!-- Galería de imágenes -->
+<div class="image-gallery">
+    <div class="image-item nebulosa" onclick="showImage('ORION-velozer~2.jpg', 'La Nebulosa de Orion es maravillosa.')">
+        <img src="ORION-velozer~2.jpg" alt="Nebulosa" loading="lazy" width="400" height="200">
+        <p>Nebulosa de Orión</p>
+    </div>
+    <div class="image-item planeta" onclick="showImage('jms.jpg', 'Júpiter es el planeta más grande del sistema solar y tiene una atmósfera turbulenta con tormentas gigantes.')">
+        <img src="jms.jpg" alt="Planeta" loading="lazy" width="400" height="200">
+        <p>Júpiter</p>
+    </div>
+    <div class="image-item galaxia" onclick="showImage('m101.jpg', 'La Galaxia del Molinete, también conocida como M101, es una galaxia espiral ubicada en la constelación de la Osa Mayor.')">
+        <img src="m101.jpg" alt="Galaxia" loading="lazy" width="400" height="200">
+        <p>Galaxia de Molinete</p>
+    </div>
+
+    <div class="image-item nebulosa" onclick="showImage('m8.jpg', 'La Nebulosa de la Laguna es una nube interestelar en la constelación de Sagitario, que es visible a simple vista en cielos oscuros.')">
+        <img src="m8.jpg" alt="Nebulosa" loading="lazy" width="400" height="200">
+        <p>Nebulosa de la Laguna</p>
+    </div>
+    <div class="image-item planeta" onclick="showImage('saturn.jpg', 'Saturno es el planeta más grande del sistema solar y tiene una atmósfera turbulenta con tormentas gigantes.')">
+        <img src="saturn.jpg" alt="Planeta" loading="lazy" width="400" height="200">
+        <p>Saturno</p>
+    </div>
+    <div class="image-item galaxia" onclick="showImage('BODE_ASTROVELOXER.jpg', 'La Galaxia de Bode, también conocida como M101, es una galaxia espiral ubicada en la constelación de la Osa Mayor.')">
+        <img src="BODE_ASTROVELOXER.jpg" alt="Galaxia" loading="lazy" width="400" height="200">
+        <p>Galaxia de Bode</p>
+    </div>
+
+
+</div>
+
+
+<!-- Lightbox para mostrar la imagen seleccionada -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <img id="lightbox-image" src="" alt="Imagen Seleccionada">
+        <div id="lightbox-info"></div>
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    </div>
+</div>
+
+
+
+    </section>
+
+
+    <!-- SECCIÓN DE PUBLICA TUS FOTOS -->
+<section class="publish-section" id="publica-tus-fotos">
+    <div class="publish-content">
+        <h3> Comparte tu Visión del Cosmos</h3>
+        <p>Únete a nuestra comunidad exclusiva de astrofotógrafos. Solo los usuarios registrados pueden ver y compartir sus capturas del cielo estrellado.</p>
+        <div class="restricted-message">
+            <p>Para compartir tus fotos y ver la galería completa, por favor <a href="inicio_sesion.html" id="login-link">inicia sesión</a> o <a href="registro.html" id="register-link">regístrate</a>.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="social-links">
+        <a href="https://www.instagram.com/Astroveloxer" target="_blank" class="social-link">
+            <img src="instagram-logo.png" alt="Instagram">
+            <span>Astroveloxer</span>
+        </a>
+    </div>
+    <div class="footer-info">
+        <p>&copy; 2024 Astroveloxer. Todos los derechos reservados.</p>
+    </div>
+</footer>
+    
+    <script src="astroveloxer.js"></script>
+</body>
+</html>

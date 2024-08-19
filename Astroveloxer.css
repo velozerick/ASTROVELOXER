@@ -877,3 +877,59 @@ section.nosotros .content p {
         font-size: 0.8rem; /* Reduce el tamaño de la fuente en el pie de página */
     }
 }
+
+
+
+
+
+
+
+.restricted-message {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.restricted-message a {
+    color: #00aaff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.restricted-message a:hover {
+    color: #0077cc;
+}
+
+
+
+.restricted-message {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.restricted-message a {
+    color: #00aaff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.restricted-message a:hover {
+    color: #0077cc;
+}
