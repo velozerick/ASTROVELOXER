@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astroveloxer - Calendario Astronómico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="calendar.css">
     <script src="astroveloxer.js"></script>
 </head>
@@ -38,25 +39,32 @@
 
     <!-- Ventana Emergente para Configurar Notificaciones -->
     <div id="notification-popup" class="notification-popup">
-        <div class="popup-content">
-            <h2 id="event-title">Evento Astronómico</h2>
-            <p>¿Cuándo te gustaría recibir la notificación?</p>
-            <form id="notification-form">
-                <input type="hidden" id="selected-date" name="selected_date">
-                <input type="hidden" id="evento_nombre" name="evento_nombre">
-                <label>
-                    <input type="radio" name="notify_time" value="1_day_before" required> Un día antes
-                </label>
-                <label>
-                    <input type="radio" name="notify_time" value="on_the_day"> El mismo día
-                </label>
-                <label for="user_email">Correo electrónico:</label>
-                <input type="email" id="user_email" name="user_email" required placeholder="Ingresa tu correo">
-                <button type="submit">Configurar Notificación</button>
-                <button type="button" onclick="closePopup()">Cancelar</button>
-            </form>
-        </div>
+    <div class="popup-content">
+        <h2 id="event-title">Evento Astronómico</h2>
+        <p>¿Cuándo te gustaría recibir la notificación?</p>
+        <form id="notification-form">
+            <input type="hidden" id="selected-date" name="selected_date">
+            <input type="hidden" id="evento_nombre" name="evento_nombre">
+            <label>
+                <input type="radio" name="notify_time" value="1_day_before" required> Un día antes
+            </label>
+            <label>
+                <input type="radio" name="notify_time" value="on_the_day"> El mismo día
+            </label>
+            <label for="user_email">Correo electrónico:</label>
+            <input type="email" id="user_email" name="user_email" required placeholder="Ingresa tu correo">
+            <div class="button-group">
+                <button type="submit" class="astro-button send-button">
+                    <i class="fas fa-rocket"></i> Enviar
+                </button>
+                <button type="button" class="astro-button cancel-button" onclick="closePopup()">
+                    <i class="fas fa-star"></i> Cancelar
+                </button>
+            </div>
+        </form>
     </div>
+</div>
+
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {

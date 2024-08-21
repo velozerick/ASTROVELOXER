@@ -114,6 +114,19 @@ body {
     text-align: center;
 }
 
+
+
+
+
+
+
+/* Efecto de brillo en los días de evento */
+.day.event {
+    position: relative;
+    overflow: hidden; /* Esconder el brillo fuera del contenedor */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
 .day-name {
     font-weight: bold;
     font-size: 1.1rem;
@@ -121,24 +134,38 @@ body {
     color: #fff;
     border-radius: 5px;
 }
-
+.day {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 .day, .empty {
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
+.day.event::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) rotate(45deg);
+    transition: all 0.5s;
+    z-index: 0;
+}
 .day:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro al hacer hover */
 }
 
 .event {
-    background-color: #0077cc; /* Color de fondo para eventos */
+    background-color: #274885; /* Color de fondo para eventos */
     color: #fff; /* Color del texto */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgb(0, 119, 204); /* Color del resplandor */
 }
 /* Efecto de clic en los días con eventos */
 .event:active {
@@ -150,23 +177,18 @@ body {
     display: block;
     margin-top: 10px;
     font-size: 0.9rem;
-    color: #fff;
-    background-color: rgba(0, 85, 255, 0.9); /* Fondo de la información del evento */
+    color: #020202;
+    background-color: rgba(172, 196, 245, 0.9); /* Fondo de la información del evento */
     padding: 5px;
     border-radius: 5px;
 }
 
-/* Efecto de hover */
-.event:hover {
-    transform: scale(1.1); /* Agranda ligeramente el día */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+.day.event:hover::before {
+    left: 150%;
 }
-/* Estilo para días pasados */
-.event-past {
-    background-color: #cccccc; /* Color gris para eventos pasados */
-    color: #666; /* Texto más claro */
-    pointer-events: none; /* Deshabilita los clics */
-    border-radius: 10px;
+
+.day.event:hover {
+    transform: scale(1.05); /* Aumenta el tamaño ligeramente */
 }
 .empty {
     background-color: transparent; /* Fondo transparente para días vacíos */
@@ -474,7 +496,8 @@ body {
     background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px rgba(0, 119, 204, 0.5); /* Color del resplandor */
     z-index: 1000;
     animation: fadeIn 0.5s ease;
 }
@@ -568,4 +591,104 @@ body {
 .event-past {
     color: #ccc; /* Color gris o más tenue */
     pointer-events: none; /* Deshabilitar clics */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos base para los botones */
+.astro-button {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    position: relative; /* Necesario para el efecto de brillo */
+    overflow: hidden; /* Esconder el brillo fuera del botón */
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 10px 20px; /* Añade espacio alrededor de cada botón */
+}
+
+/* Efecto de hover en el botón */
+.astro-button:hover {
+    background-color: #005fa3;
+    transform: translateY(-3px); /* Efecto de levantamiento al pasar el mouse */
+}
+
+/* Efecto de brillo */
+.astro-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) rotate(45deg);
+    transition: all 0.5s;
+    z-index: 0;
+}
+
+/* Animación de brillo al pasar el mouse */
+.astro-button:hover::before {
+    left: 150%;
+}
+
+/* Estilos para el icono dentro de los botones */
+.astro-button i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+    transition: transform 0.3s ease-in-out; /* Transición suave para la animación */
+    z-index: 1; /* Asegura que el icono esté encima del brillo */
+}
+
+/* Animación del icono al pasar el mouse */
+.astro-button:hover i {
+    transform: rotate(360deg); /* Gira el icono 360 grados */
+}
+
+/* Estilos específicos para el botón de enviar */
+.send-button {
+    background-color: #28a745; /* Verde para enviar */
+}
+
+.send-button:hover {
+    background-color: #218838;
+}
+
+/* Estilos específicos para el botón de cancelar */
+.cancel-button {
+    background-color: #dc3545; /* Rojo para cancelar */
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para el grupo de botones */
+.button-group {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 20px; /* Añade un margen superior */
 }
