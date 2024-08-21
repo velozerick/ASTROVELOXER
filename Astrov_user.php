@@ -21,8 +21,8 @@
                 <li><a href="#home">ASTROVELOXER</a></li>
                 <li><a href="#Iniciar">Mira arriba</a></li>
                 <li><a href="#como-iniciar">Como iniciar?</a></li>
-                <li><a href="Astrofoto_user.html">Astrofotografía</a></li>
-                <li><a href="calen_user.html">Calendario astronómico</a></li>
+                <li><a href="Astrofoto_user.php">Astrofotografía</a></li>
+                <li><a href="calen_user.php">Calendario astronómico</a></li>
                 <li><a href="#" onclick="alert('La página EIEMEX aún no está disponible. ¡Vuelve pronto!');">EIEMEX Próximamente</a></li>
 
             </ul>
@@ -43,7 +43,7 @@
 
         <div class="row">
             <div class="image">
-                <img src="secret.jpg" alt="nosotros">
+                <img src="img/secret.jpg" alt="nosotros">
             </div>
             <div class="content">
                 <p>Desde siempre, la humanidad ha mirado al cielo en busca de respuestas. Las estrellas y planetas nos recuerdan lo vasto y misterioso que es el universo.</p>
@@ -67,7 +67,7 @@
 <footer class="footer">
     <div class="social-links">
         <a href="https://www.instagram.com/Astroveloxer" target="_blank" class="social-link">
-            <img src="instagram-logo.png" alt="Instagram">
+            <img src="img/instagram-logo.webp" alt="Instagram">
             <span>Astroveloxer</span>
         </a>
     </div>

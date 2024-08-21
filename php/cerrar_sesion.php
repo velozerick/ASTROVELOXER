@@ -3,7 +3,7 @@
 
 session_start();
 session_destroy();
-header("location: ../loginMRS.php");
+header("location: ../Astrov_user.php");
 
 
 

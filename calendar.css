@@ -1,20 +1,3 @@
-.main-title {
-    font-size: 4rem; /* Título en mayúsculas y grande */
-    margin-bottom: 20px;
-    color: #bbe2f5;
-    text-transform: uppercase;
-}
-
-.calendar-description {
-    font-size: 1.5rem; /* Aumento ligero del tamaño del texto descriptivo */
-    margin-bottom: 40px;
-    color: #99dcf7;
-}
-
-
-html {
-    scroll-behavior: smooth;
-}
 
 /* Estilos generales para la barra de desplazamiento */
 ::-webkit-scrollbar {
@@ -36,9 +19,228 @@ html {
     background-color: #1a1a1a;  /* Color del track (la pista de la barra) */
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  /* Sombra interna */
+}/* Fondo animado de estrellas */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 0.3s infinite alternate;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 1.5;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #000000;
+    color: #ffffff;
+    transition: background-color 1s ease;
+}
+
+.main-title {
+    font-size: 3.5rem; /* Ajuste del tamaño del título */
+    margin-bottom: 20px;
+    color: #bbe2f5;
+    text-transform: uppercase;
+}
+
+.calendar-description {
+    font-size: 1.3rem; /* Ajuste del tamaño de la descripción */
+    margin-bottom: 40px;
+    color: #99dcf7;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sección del calendario */
+.calendar-container {
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.day-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.day, .empty {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.day:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro al hacer hover */
+}
+
+.event {
+    background-color: #0077cc; /* Color de fondo para eventos */
+    color: #fff; /* Color del texto */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Efecto de clic en los días con eventos */
+.event:active {
+    transform: scale(0.95); /* Disminuye ligeramente el tamaño */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Reduce la sombra */
+}
+
+.event-info {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: rgba(0, 85, 255, 0.9); /* Fondo de la información del evento */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Efecto de hover */
+.event:hover {
+    transform: scale(1.1); /* Agranda ligeramente el día */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
+}
+/* Estilo para días pasados */
+.event-past {
+    background-color: #cccccc; /* Color gris para eventos pasados */
+    color: #666; /* Texto más claro */
+    pointer-events: none; /* Deshabilita los clics */
+    border-radius: 10px;
+}
+.empty {
+    background-color: transparent; /* Fondo transparente para días vacíos */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsividad para el título principal y la descripción del calendario */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem; /* Ajusta el tamaño del título */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem; /* Ajusta el tamaño del título para pantallas aún más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-container {
+        padding: 10px;
+    }
+
+    .calendar-grid {
+        gap: 5px;
+    }
+
+    .day-name, .day, .empty {
+        padding: 5px;
+        font-size: 1rem;
+    }
+
+    .calendar-container h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 3px;
+    }
+
+    .day-name, .day, .empty {
+        padding: 3px;
+        font-size: 0.9rem;
+    }
+
+    .calendar-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Barra de navegación */
 .header {
     position: fixed;
     width: 100%;
@@ -48,8 +250,6 @@ html {
     padding: 0.4rem 0;
     transition: background-color 0.3s;
 }
-
-
 .navbar {
     display: flex;
     justify-content: center;
@@ -59,19 +259,21 @@ html {
 .nav {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem; /* Reduce el espacio entre los elementos de la navegación */
 }
 
 .nav li {
     position: relative;
+    margin: 0; /* Elimina márgenes adicionales para centrar los elementos */
 }
 
 .nav a {
     text-decoration: none;
-    font-size: 1.2rem; /* Tamaño de letra más pequeño */
+    font-size: 1rem; /* Reduce el tamaño del texto */
     color: #e8eaed;
     padding: 10px 15px;
     transition: color 0.3s ease;
+    text-align: center; /* Asegura que el texto esté centrado */
 }
 
 .nav a:hover {
@@ -103,14 +305,47 @@ html {
 }
 
 .nav li:first-child {
-    margin-right: 90px; /* Espacio adicional en la versión de escritorio */
+    margin-right: 0; /* Elimina el margen adicional del primer elemento */
 }
 
 .nav li:nth-child(2) {
-    margin-left: 4rem; /* Añade espacio a la derecha de "ASTROVELOXER" */
+    margin-left: 0; /* Elimina el margen adicional del segundo elemento */
 }
 
-/* Responsividad de la barra de navegación */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav li {
+        margin: 10px 0;
+    }
+
+    .nav a {
+        font-size: 1.5rem; /* Ajusta el tamaño del texto en pantallas más pequeñas */
+        padding: 15px 0;
+    }
+
+    .nav li:first-child {
+        margin-right: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .burger {
         display: flex;
@@ -141,9 +376,25 @@ html {
     }
 
     .nav li:first-child {
-        margin-right: 0; /* Elimina el margen extra en la versión móvil */
+        margin-right: 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Estilos para el menú burger */
 .burger {
@@ -155,7 +406,6 @@ html {
     cursor: pointer;
 }
 
-
 .burger span {
     width: 100%;
     height: 4px;
@@ -163,7 +413,6 @@ html {
     transition: all 0.3s ease;
 }
 
-/* Animación para la apertura de la Burger Bar */
 .burger.active span:nth-child(1) {
     transform: rotate(45deg) translateY(9px);
 }
@@ -176,12 +425,114 @@ html {
     transform: rotate(-45deg) translateY(-9px);
 }
 
-
 @media (max-width: 768px) {
     .burger {
         display: flex;
     }
 }
+
+/* Footer */
+.footer {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-info {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+
+
+/* Estilo base para la ventana emergente */
+.notification-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+.popup-content {
+    background-color: #333; /* Fondo oscuro */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    color: #fff; /* Texto en blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para los botones */
+.notification-popup button {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto de hover en los botones */
+.notification-popup button:hover {
+    background-color: #005fa3;
+}
+.popup-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.popup-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.popup-content label {
+    display: block;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+
+
 
 /* Fondo animado de estrellas */
 .stars {
@@ -200,7 +551,7 @@ html {
     height: 2px;
     background: white;
     border-radius: 50%;
-    animation: blink 0.3s infinite alternate; 
+    animation: blink 0.3s infinite alternate;
 }
 
 @keyframes blink {
@@ -212,99 +563,9 @@ html {
     }
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    background-color: #00000062; /* Fondo oscuro sólido */
-    color: rgb(15, 15, 15);
-    transition: background-color 1s ease;
-}
-.calendar-container {
-
-    max-width: 900px;
-  margin: 100px auto;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.247);
-    color: #fff;
-    text-align: center;
-}
-
-.calendar-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-}
-
-.calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
-
-.day-name {
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-}
-
-.day, .empty {
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.day:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.event {
-    background-color: #0055ff;
-    color: #fff;
-    cursor: pointer;
-    position: relative;
-}
-
-.event-info {
-    display: block;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #fff;
-    background-color: rgba(0, 85, 255, 0.9);
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.event-info:hover {
-    background-color: rgba(0, 85, 255, 1);
-}
-
-.empty {
-    background-color: transparent;
-}
 
 
-/* Responsividad para el título principal y la descripción del calendario */
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 3rem; /* Reducir el tamaño del título en pantallas más pequeñas */
-    }
-
-    .calendar-description {
-        font-size: 1.2rem; /* Ajustar ligeramente el tamaño de la descripción en pantallas más pequeñas */
-    }
-}
-
-@media (max-width: 480px) {
-    .main-title {
-        font-size: 2.5rem; /* Aún más pequeño para pantallas muy pequeñas */
-    }
-
-    .calendar-description {
-        font-size: 1rem; /* Reducir aún más la descripción en pantallas muy pequeñas */
-    }
+.event-past {
+    color: #ccc; /* Color gris o más tenue */
+    pointer-events: none; /* Deshabilitar clics */
 }

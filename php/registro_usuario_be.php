@@ -33,6 +33,10 @@ if (mysqli_num_rows($verificar_email) > 0) {
 $ejecutar = mysqli_query($conexion, $query);
 
 if ($ejecutar) {
+    // Iniciar sesión y guardar el nombre de usuario en la sesión
+    session_start();
+    $_SESSION['usuario'] = $nombre;
+
     // Enviar el correo de verificación
     $mail = new PHPMailer(true);
 

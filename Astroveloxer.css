@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
+/* ============================
+    Configuración General
+============================ */
+
 * {
     font-family: "Roboto", sans-serif;
     margin: 0;
@@ -18,31 +22,30 @@ html {
 
 /* Estilos generales para la barra de desplazamiento */
 ::-webkit-scrollbar {
-    width: 12px;  /* Ancho de la barra de desplazamiento */
-    background-color: #1a1a1a;  /* Color de fondo de la barra */
+    width: 12px;  
+    background-color: #1a1a1a;  
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #1a2a3a;  /* Color del thumb (el "pulgar" de la barra) */
-    border-radius: 10px;  /* Bordes redondeados para el thumb */
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  /* Sombra interna */
+    background-color: #1a2a3a;  
+    border-radius: 10px;  
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #4a91cc;  /* Color del thumb al hacer hover */
+    background-color: #4a91cc;  
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #1a1a1a;  /* Color del track (la pista de la barra) */
+    background-color: #1a1a1a;  
     border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  /* Sombra interna */
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  
 }
 
+/* ============================
+    Estilo del Body
+============================ */
 
-
-
-
-/* Configuración básica del body */
 body {
     margin: 0;
     padding: 0;
@@ -58,7 +61,10 @@ body {
     transition: background-color 1s ease;
 }
 
-/* Fondo animado de estrellas */
+/* ============================
+    Fondo de Estrellas Animado
+============================ */
+
 .stars {
     position: fixed;
     top: 0;
@@ -87,11 +93,9 @@ body {
     }
 }
 
-
-
-
-
-
+/* ============================
+    Barra de Navegación
+============================ */
 
 .header {
     position: fixed;
@@ -163,7 +167,10 @@ body {
     margin-left: 4rem; /* Añade espacio a la derecha de "ASTROVELOXER" */
 }
 
-/* Responsividad de la barra de navegación */
+/* ============================
+    Responsividad de la Barra de Navegación
+============================ */
+
 @media (max-width: 768px) {
     .burger {
         display: flex;
@@ -198,7 +205,23 @@ body {
     }
 }
 
-/* Estilos para el menú burger */
+/* ============================
+    Bienvenida a Usuario
+============================ */
+
+.nav .welcome-user {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* ============================
+    Menú Burger
+============================ */
+
 .burger {
     display: none;
     flex-direction: column;
@@ -207,7 +230,6 @@ body {
     height: 25px;
     cursor: pointer;
 }
-
 
 .burger span {
     width: 100%;
@@ -229,18 +251,16 @@ body {
     transform: rotate(-45deg) translateY(-9px);
 }
 
-
 @media (max-width: 768px) {
     .burger {
         display: flex;
     }
 }
 
+/* ============================
+    Sección "Cómo Iniciar en Astrofotografía"
+============================ */
 
-
-
-
-/* Estilos para la Sección "Cómo Iniciar en Astrofotografía" */
 .como-iniciar {
     padding: 100px 50px;
     color: #ffffff;
@@ -274,22 +294,21 @@ body {
 .card {
     position: relative;
     list-style: none;
-    width: 100%; /* Asegura que las cards ocupen todo el espacio en su columna */
-    max-width: 250px; /* Limita el ancho máximo para mantener las cards compactas */
-    margin: auto; /* Centra las cards dentro de la grilla */
-    overflow: hidden; /* Asegura que las imágenes y contenidos no se desborden */
-    border-radius: var(--spacing-l); /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para elevar las cards */
+    width: 100%; 
+    max-width: 250px; 
+    margin: auto; 
+    overflow: hidden; 
+    border-radius: var(--spacing-l); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .card:before {
     content: '';
     display: block;
-    padding-bottom: 130%; /* Mantiene la proporción de las cards */
+    padding-bottom: 130%; 
     width: 100%;
 }
 
-/* Configuración básica de la tarjeta */
 .card__background {
     background-size: cover;
     background-position: center;
@@ -303,50 +322,42 @@ body {
     transition: filter 200ms linear, transform 200ms linear;
 }
 
-/* Efecto de zoom y claridad en la tarjeta que recibe el hover */
 .card:hover .card__background {
     transform: scale(1.05);
     filter: brightness(1) saturate(1.2) contrast(1);
 }
 
-/* Oscurecimiento de las tarjetas inactivas */
 .card.inactive .card__background {
     filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
 }
 
-
-
-
-/* Posicionar el contenido de la tarjeta */
 .card__content {
     position: absolute;
-    bottom: 140px; /* Coloca el texto en la parte inferior */
+    bottom: 140px;
     left: 20px;
     z-index: 2;
-    color: #ffffff; /* Color del texto en blanco */
-    text-align: left; /* Alinea el texto a la izquierda */
+    color: #ffffff; 
+    text-align: left; 
 }
 
-/* Categoría y Título */
 .card__category {
     font-size: 0.9rem;
     margin-bottom: var(--spacing-s);
     text-transform: uppercase;
-    color: #ffffff; /* Color del texto de la categoría en blanco */
+    color: #ffffff; 
 }
 
 .card__heading {
-    font-size: 1.5rem; /* Ajusta el tamaño del título */
+    font-size: 1.5rem; 
     line-height: 1.4;
-    color: #ffffff; /* Color del título en blanco */
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.808); /* Agrega sombra al texto para mayor legibilidad */
+    color: #ffffff; 
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.808); 
 }
 
+/* ============================
+    HOME SECTION
+============================ */
 
-
-
-
-/* HOME SECTION */
 .home {
     min-height: 100vh;
     display: flex;
@@ -372,16 +383,12 @@ body {
     color: #fff;
 }
 
-
-
-
-
-/* Sección "El Porqué Ver Hacia Arriba" */
-
+/* ============================
+    Sección "El Porqué Ver Hacia Arriba"
+============================ */
 
 section.nosotros {
     padding: 50px 0;
-    /* Sin fondo adicional */
 }
 
 section.nosotros .heading {
@@ -396,52 +403,36 @@ section.nosotros .row {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 20px; /* Espacio entre la imagen y el texto */
+    gap: 20px;
 }
 
 section.nosotros .image {
-    flex: 1 1 15%; /* Imagen más pequeña, ajustada al 20% del ancho disponible */
+    flex: 1 1 15%; 
     text-align: center;
-    
 }
 
 section.nosotros .image img {
     max-width: 100%;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para darle profundidad */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 10px;
 }
 
 section.nosotros .content {
-    flex: 1 1 50%; /* Ajusta el tamaño del contenido */
-    animation: float 3s ease-in-out infinite; /* Efecto de flotación */
-    color: #ffffff; /* Color del texto */
+    flex: 1 1 50%; 
+    animation: float 3s ease-in-out infinite; 
+    color: #ffffff; 
 }
 
 section.nosotros .content p {
     font-size: 1.5rem;
     line-height: 1.4;
-    margin-bottom: 90px; /* Más espacio entre párrafos */
+    margin-bottom: 90px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ============================
+    Sección de Encabezados y Texto
+============================ */
 
 .heading {
     font-size: 3.5rem;
@@ -451,29 +442,55 @@ section.nosotros .content p {
 }
 
 .heading span {
-    color: #5fb2ff; /* Color diferente para las palabras en span */
+    color: #5fb2ff; 
 }
+
+/* ============================
+    Estilos de Texto Introductorio
+============================ */
+
 .intro-text-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px; /* Espacio entre las columnas */
-    padding: 20px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
 }
 
 .intro-text-part {
-    flex: 1;
-    padding: 10px;
-    color: #ffffff;
-    font-size: 1.2rem;
-    text-align: justify;
-    line-height: 1.6;
-    max-width: 30%; /* Limita el ancho para mantenerlo en tres columnas */
+    flex: 1 1 300px; 
+    min-width: 300px;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.intro-text-part p {
-    margin: 0;
+@media (max-width: 768px) {
+    .intro-text-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .intro-text-part {
+        flex: 1 1 auto;
+        max-width: 100%;
+        padding: 10px;
+    }
 }
+
+@media (max-width: 480px) {
+    .intro-text-container {
+        padding: 10px;
+    }
+
+    .intro-text-part {
+        padding: 5px;
+    }
+}
+
+/* ============================
+    Pie de Página
+============================ */
 
 .footer {
     background-color: #1a1a1a;
@@ -508,6 +525,38 @@ section.nosotros .content p {
 
 
 
+/* Ajustes para pantallas medianas */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 2rem; /* Ajustar el tamaño de los títulos */
+    }
+
+    .explore-home .explore-content h3 {
+        font-size: 3rem; /* Reducir el tamaño del título en la sección 'Explora y Comparte el Cosmos' */
+    }
+
+    .home .content h3 {
+        font-size: 3.5rem; /* Reducir el tamaño del título en la sección 'Home' */
+    }
+
+    .publish-content h3 {
+        font-size: 2.5rem; /* Reducir el tamaño del título en la sección 'Publica tus fotos' */
+    }
+
+    .footer-info {
+        font-size: 0.9rem; /* Ajustar el tamaño del texto en el pie de página */
+    }
+
+    .explore-home .explore-content p,
+    .home .content p,
+    .publish-content p {
+        font-size: 1.5rem; /* Ajustar el tamaño del párrafo */
+    }
+
+    .nav a {
+        font-size: 1.5rem; /* Ajustar el tamaño de fuente en la navegación */
+    }
+}
 
 
 
@@ -525,10 +574,48 @@ section.nosotros .content p {
 
 
 
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.5rem; /* Reducir más el tamaño de los títulos */
+    }
 
+    .explore-home .explore-content h3 {
+        font-size: 2.5rem; /* Reducir más el tamaño del título en la sección 'Explora y Comparte el Cosmos' */
+    }
 
+    .home .content h3 {
+        font-size: 2.5rem; /* Reducir más el tamaño del título en la sección 'Home' */
+    }
 
+    .publish-content h3 {
+        font-size: 2rem; /* Reducir más el tamaño del título en la sección 'Publica tus fotos' */
+    }
 
+    .footer-info {
+        font-size: 0.8rem; /* Reducir el tamaño del texto en el pie de página */
+    }
+
+    .explore-home .explore-content p,
+    .home .content p,
+    .publish-content p {
+        font-size: 1.2rem; /* Ajustar el tamaño del párrafo */
+    }
+
+    .nav a {
+        font-size: 1.2rem; /* Ajustar el tamaño de fuente en la navegación */
+    }
+}
+
+/* Evitar zoom excesivo */
+html {
+    touch-action: manipulation;
+    user-select: none;
+}
+
+body {
+    overscroll-behavior: contain;
+}
 
 
 
@@ -545,11 +632,13 @@ section.nosotros .content p {
 
 
 /*****************************************************************************************/
-
 /* Sección de Astrofotografía */
+/*****************************************************************************************/
 
+/* ============================
+    SECCIÓN "Explora y Comparte el Cosmos"
+============================ */
 
-/* SECCIÓN "Explora y Comparte el Cosmos" */
 .explore-home {
     min-height: 100vh;
     display: flex;
@@ -574,16 +663,28 @@ section.nosotros .content p {
     padding: 1rem 0;
     color: #fff;
 }
+/* Ajustes para pantallas medianas */
+@media (max-width: 768px) {
+    .explore-home .explore-content h3 {
+        font-size: 2.5rem; /* Reducir más el tamaño del título en la sección 'Explora y Comparte el Cosmos' */
+    }
+}
 
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    .explore-home .explore-content h3 {
+        font-size: 2rem; /* Reducir aún más el tamaño del título en la sección 'Explora y Comparte el Cosmos' */
+    }
+}
 
-
-
-
+/* ============================
+    SECCIÓN Astrofotografía
+============================ */
 
 .astrofotografia {
     padding: 50px 20px;
     text-align: center;
-    color: #fff; /* Mantiene el color del texto para que resalte en el fondo existente */
+    color: #fff;
 }
 
 .heading {
@@ -609,6 +710,10 @@ section.nosotros .content p {
 .filter-buttons button:hover {
     background-color: #00aaff;
 }
+
+/* ============================
+    Galería de Imágenes
+============================ */
 
 .image-gallery {
     display: flex;
@@ -637,7 +742,7 @@ section.nosotros .content p {
     left: 10px;
     color: #fff;
     font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente solo detrás del texto */
+    background: rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -646,8 +751,182 @@ section.nosotros .content p {
     transform: scale(1.05);
 }
 
-/* SECCIÓN DE PUBLICA TUS FOTOS */
+/* ============================
+    Lightbox para Imágenes
+============================ */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    color: #fff;
+}
+
+.lightbox img {
+    max-width: 50%;
+    max-height: 80vh;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+#lightbox-info {
+    max-width: 45%;
+    font-size: 1.5rem;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ============================
+    Responsividad para pantallas medianas
+============================ */
+
+@media (max-width: 768px) {
+    /* Ajustes para el body */
+    body {
+        background: linear-gradient(to bottom, 
+            #FF7E5F,   
+            #6A0572,   
+            #030D3D,   
+            #000000);
+        background-attachment: scroll; 
+    }
+
+    /* Ajustes para la barra de navegación */
+    .nav a {
+        font-size: 1.5rem;
+    }
+
+    /* Ajustes para la sección "Cómo Iniciar en Astrofotografía" */
+    .como-iniciar {
+        padding: 50px 20px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* Ajustes para las tarjetas */
+    .card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustes para la sección "El Porqué Ver Hacia Arriba" */
+    section.nosotros .content {
+        font-size: 1.2rem;
+    }
+
+    section.nosotros .image {
+        flex: 1 1 50%;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustes para el pie de página */
+    .footer {
+        padding: 10px;
+    }
+}
+
+/* ============================
+    Responsividad para pantallas pequeñas
+============================ */
+
+@media (max-width: 480px) {
+    /* Ajustes para la barra de navegación */
+    .nav a {
+        font-size: 1.2rem;
+    }
+
+    .nav li {
+        margin: 5px 0;
+    }
+
+    /* Ajustes para la sección "Cómo Iniciar en Astrofotografía" */
+    .como-iniciar {
+        padding: 30px 10px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* Ajustes para la sección "El Porqué Ver Hacia Arriba" */
+    section.nosotros .content {
+        font-size: 1rem;
+    }
+
+    section.nosotros .image {
+        flex: 1 1 70%;
+    }
+
+    /* Ajustes para el pie de página */
+    .footer {
+        padding: 5px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================
+    Mensajes Restrictivos
+============================ */
+
+.restricted-message {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.restricted-message a {
+    color: #00aaff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.restricted-message a:hover {
+    color: #0077cc;
+}
+
+/* ============================
+    SECCIÓN Subir Fotos
+============================ */
+
 .publish-section {
+    background-color: #1a1a1a;
     padding: 50px 20px;
     text-align: center;
     color: #fff;
@@ -685,7 +964,7 @@ section.nosotros .content p {
     padding: 10px;
     border: 1px solid #333;
     border-radius: 5px;
-    background-color: transparent;
+    background-color: #000;
     color: #fff;
 }
 
@@ -714,222 +993,118 @@ section.nosotros .content p {
     color: #00aaff;
 }
 
+/* ============================
+    Galería del Foro de Fotos
+============================ */
+
 .forum-gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    justify-content: center;
+    margin-top: 20px;
 }
 
 .forum-item {
-    background-color: #222;
-    padding: 10px;
-    border-radius: 10px;
     text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #1e1e1e;
+    padding: 10px;
 }
 
 .forum-item img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
-    margin-bottom: 10px;
 }
 
 .forum-item p {
-    font-size: 1.2rem;
-    color: #ccc;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 1rem;
 }
 
+/* ============================
+    Lightbox para Fotos de Usuarios
+============================ */
 
-
-
-
-/* Estilo del Lightbox */
-.lightbox {
-    display: none; /* Inicialmente oculto */
+.user-lightbox {
+    display: none;
     position: fixed;
-    top: 0;
+    z-index: 999;
+    padding-top: 100px;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Oscurece el fondo */
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
 }
 
-.lightbox-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    max-width: 90%;
-    max-height: 90%;
-    color: #fff;
+.user-lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
 }
 
-.lightbox img {
-    max-width: 50%;
-    max-height: 100%;
-    border-radius: 10px;
-}
-
-#lightbox-info {
-    max-width: 40%;
-    font-size: 1.5rem;
-}
-
-.close-btn {
+.user-lightbox .close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    color: #fff;
+    top: 50px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.user-lightbox .close:hover,
+.user-lightbox .close:focus {
+    color: #bbb;
+    text-decoration: none;
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-/* Responsividad para pantallas medianas */
-@media (max-width: 768px) {
-    /* Ajustes para el body */
-    body {
-        background: linear-gradient(to bottom, 
-            #FF7E5F,   /* Atardecer cálido */
-            #6A0572,   /* Un tono más oscuro para la transición */
-            #030D3D,   /* Tono de crepúsculo más oscuro */
-            #000000);  /* Noche */
-        background-attachment: scroll; /* Evita el fondo fijo en pantallas pequeñas */
-    }
-
-    /* Ajustes para la barra de navegación */
-    .nav a {
-        font-size: 1.5rem; /* Ajusta el tamaño de fuente en la navegación */
-    }
-
-    /* Ajustes para la sección "Cómo Iniciar en Astrofotografía" */
-    .como-iniciar {
-        padding: 50px 20px; /* Reduce el padding en pantallas más pequeñas */
-    }
-
-    .card-grid {
-        grid-template-columns: repeat(1, 1fr); /* Una sola columna en pantallas más pequeñas */
-    }
-
-    /* Ajustes para las tarjetas */
-    .card {
-        max-width: 100%; /* Las tarjetas ocupan todo el ancho disponible */
-        margin-bottom: 20px; /* Añade espacio entre las tarjetas */
-    }
-
-    /* Ajustes para la sección "El Porqué Ver Hacia Arriba" */
-    section.nosotros .content {
-        font-size: 1.2rem; /* Reduce ligeramente el tamaño del texto */
-    }
-
-    section.nosotros .image {
-        flex: 1 1 50%; /* Aumenta el tamaño de la imagen */
-        margin-bottom: 20px; /* Añade espacio debajo de la imagen */
-    }
-
-    /* Ajustes para el pie de página */
-    .footer {
-        padding: 10px; /* Reduce el padding en el pie de página */
-    }
-}
-
-/* Responsividad para pantallas pequeñas */
-@media (max-width: 480px) {
-    /* Ajustes para la barra de navegación */
-    .nav a {
-        font-size: 1.2rem; /* Reduce aún más el tamaño de fuente en la navegación */
-    }
-
-    .nav li {
-        margin: 5px 0; /* Menos espacio entre los elementos del menú */
-    }
-
-    /* Ajustes para la sección "Cómo Iniciar en Astrofotografía" */
-    .como-iniciar {
-        padding: 30px 10px; /* Reduce aún más el padding */
-    }
-
-    .card-grid {
-        grid-template-columns: repeat(1, 1fr); /* Una sola columna en pantallas pequeñas */
-    }
-
-    /* Ajustes para la sección "El Porqué Ver Hacia Arriba" */
-    section.nosotros .content {
-        font-size: 1rem; /* Reduce el tamaño del texto */
-    }
-
-    section.nosotros .image {
-        flex: 1 1 70%; /* Aumenta aún más el tamaño de la imagen */
-    }
-
-    /* Ajustes para el pie de página */
-    .footer {
-        padding: 5px; /* Reduce el padding en el pie de página */
-        font-size: 0.8rem; /* Reduce el tamaño de la fuente en el pie de página */
-    }
-}
-
-
-
-
-
-
-
-.restricted-message {
+#userLightboxCaption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
     text-align: center;
-    font-size: 1.5rem;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    color: #ffffff;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
 }
 
-.restricted-message a {
-    color: #00aaff;
-    text-decoration: underline;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
+/* ============================
+    Estado de Subida de Archivos
+============================ */
 
-.restricted-message a:hover {
-    color: #0077cc;
-}
-
-
-
-.restricted-message {
+.upload-status {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 1.5rem;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    color: #ffffff;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.restricted-message a {
-    color: #00aaff;
-    text-decoration: underline;
-    font-weight: bold;
-    transition: color 0.3s ease;
+.upload-status p {
+    color: #333;
 }
 
-.restricted-message a:hover {
-    color: #0077cc;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

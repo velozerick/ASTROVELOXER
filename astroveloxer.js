@@ -105,18 +105,51 @@ filterButtons.forEach(button => {
 
 
 
-function showImage(src, info) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    const lightboxInfo = document.getElementById('lightbox-info');
 
-    lightboxImage.src = src;
-    lightboxInfo.textContent = info;
 
-    lightbox.style.display = 'flex'; // Muestra el lightbox
+
+function showImage(imageSrc, imageInfo) {
+    // Crear un contenedor para el lightbox
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    
+    // Crear el contenido del lightbox
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <img src="${imageSrc}" alt="Imagen seleccionada">
+            <div id="lightbox-info">${imageInfo}</div>
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        </div>
+    `;
+    
+    document.body.appendChild(lightbox);
+    
+    // Mostrar el lightbox
+    lightbox.style.display = 'flex';
 }
 
 function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.style.display = 'none'; // Oculta el lightbox
+    const lightbox = document.querySelector('.lightbox');
+    if (lightbox) {
+        lightbox.remove();
+    }
+}
+
+
+
+
+
+function openUserLightbox(img, description) {
+    var lightbox = document.getElementById("userLightbox");
+    var lightboxImg = document.getElementById("userLightboxImg");
+    var captionText = document.getElementById("userLightboxCaption");
+
+    lightbox.style.display = "block";
+    lightboxImg.src = img.src;
+    captionText.innerHTML = description;
+}
+
+function closeUserLightbox() {
+    var lightbox = document.getElementById("userLightbox");
+    lightbox.style.display = "none";
 }
