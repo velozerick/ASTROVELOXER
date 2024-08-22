@@ -139,15 +139,21 @@ $nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde l
 
     function checkAstronomicalEvent(day, month, year) {
         const events = {
-            3: "Luna Nueva",
+            1: "Luna cerca de Mercurio",
+            2: "Luna Nueva",
             5: "Mercurio en máxima elongación",
-            8: "Saturno en oposición",
+            7: "Saturno en oposición",
+            9: "LLuvia de meteoros Perseidas",
+            11: "Luna Cuarto creciente",
             17: "Ocultación lunar de Saturno",
             18: "Superluna y Eclipse Lunar",
-            21: "Neptuno en oposición",
+            20: "Neptuno en oposición",
             22: "Equinoccio de septiembre",
             23: "Luna cerca de Júpiter",
-            25: "Luna cerca de Marte"
+            25: "Luna cerca de Marte",
+            27: "Lluvia de meteoros Sextantidas Diurnas",
+            30: "Conjunción solar, Mercurio"
+
         };
         return events[day] || null;
     }
