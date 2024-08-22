@@ -153,3 +153,16 @@ function closeUserLightbox() {
     var lightbox = document.getElementById("userLightbox");
     lightbox.style.display = "none";
 }
+
+
+
+
+
+
+function toggleSecondaryNav() {
+    const nav = document.querySelector('.secondary-nav');
+    const toggle = document.querySelector('.nav-toggle');
+    nav.classList.toggle('active');
+    toggle.classList.toggle('active');
+}
+

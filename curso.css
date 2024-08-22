@@ -1,0 +1,986 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+/* ============================
+    Configuración General
+============================ */
+
+* {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos generales para la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px;  
+    background-color: #1a1a1a;  
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1a2a3a;  
+    border-radius: 10px;  
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #4a91cc;  
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1a1a1a;  
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);  
+}
+
+/* ============================
+    Estilo del Body
+============================ */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, 
+        #FF7E5F,   /* Atardecer cálido */
+        #6A0572,   /* Un tono más oscuro para la transición */
+        #030D3D,   /* Tono de crepúsculo más oscuro */
+        #000000);  /* Noche */
+    background-attachment: fixed;
+    color: white;
+    transition: background-color 1s ease;
+}
+
+
+
+
+
+
+
+/* ============================
+    Fondo de Estrellas Animado
+============================ */
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 0.3s infinite alternate;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 1.5;
+    }
+}
+
+/* ============================
+    Barra de Navegación Principal
+============================ */
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    transition: background-color 0.3s;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav li {
+    position: relative;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #e8eaed;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ffffff;
+}
+
+.nav a::before, .nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #5fb2ff;
+    transition: width 0.5s ease;
+    opacity: 0.7;
+}
+
+.nav a::before {
+    top: 0;
+    left: 0;
+}
+
+.nav a::after {
+    bottom: 0;
+    right: 0;
+}
+
+.nav a:hover::before, .nav a:hover::after {
+    width: 100%;
+}
+
+.nav li:first-child {
+    margin-right: 90px;
+}
+
+.nav li:nth-child(2) {
+    margin-left: 4rem;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 100%;
+    height: 4px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+}
+
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.959);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav li {
+        margin: 10px 0;
+    }
+
+    .nav a {
+        font-size: 1.8rem;
+        padding: 15px 0;
+    }
+
+    .nav li:first-child {
+        margin-right: 0;
+    }
+}
+
+/* ============================
+    Barra de Navegación Secundaria
+============================ */
+
+.secondary-nav {
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la transparencia para ver el efecto borroso */
+    backdrop-filter: blur(10px); /* Aplica el efecto borroso */
+    position: fixed;
+    right: 0;
+    top: 60px;
+    height: 100%;
+    width: 250px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+
+.secondary-nav.active {
+    transform: translateX(0);
+}
+
+.nav-toggle {
+    font-size: 24px;
+    position: absolute;
+    left: -30px;
+    top: 20px;
+    background-color: rgba(0, 0, 0, 0.596); /* Fondo negro con transparencia */
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px 0 0 4px;
+    width: 30px; /* Asegura un tamaño fijo para evitar alargado */
+    height: 40px; /* Asegura un tamaño fijo para evitar alargado */
+    z-index: 1001;
+}
+
+.secondary-nav ul {
+    list-style: none;
+    padding: 2rem 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.secondary-nav ul li {
+    display: inline-block;
+}
+
+.secondary-nav ul li a {
+    font-size: 1rem;
+    color: #a0c0ff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.secondary-nav ul li a:hover {
+    background-color: #ffffff33;
+}
+
+/* ============================
+    Responsividad de la Barra de Navegación Secundaria
+============================ */
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        top: 10px;
+        right: 10px; /* Mantiene el ícono en la esquina derecha */
+    }
+
+    .secondary-nav.active .nav-toggle {
+        right: 10px; /* Asegura que el ícono no se desplace al abrir la barra */
+    }
+}
+
+
+/* ============================
+    Estilo para la Sección Home
+============================ */
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Ajuste para que no se superponga con la barra de navegación */
+    text-align: center;
+    background: linear-gradient(to bottom, 
+        #FF7E5F,   /* Atardecer cálido */
+        #6A0572,   /* Un tono más oscuro para la transición */
+        #030D3D,   /* Tono de crepúsculo más oscuro */
+        #000000);  /* Noche */
+    color: white;
+}
+
+.home .content {
+    max-width: 50rem;
+}
+
+.home .content h3 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.home .content p {
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ffffff;
+}
+
+/* ============================
+    Títulos y Secciones
+============================ */
+
+
+.announcement {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con transparencia */
+    backdrop-filter: blur(8px); /* Efecto borroso */
+    padding: 15px 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    color: #fff; /* Color del texto */
+    margin: 20px 0; /* Espaciado externo */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    text-align: center; /* Centrar el texto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+
+
+.section {
+    padding: 4rem 2rem;
+    margin-top: 2rem;
+}
+
+.section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #8cb3ff; /* Color relajado y espacial */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.section h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #92aaff;
+    text-align: center;
+}
+
+.section p,
+.section ul,
+.section ol {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    text-align: justify;
+}
+
+.section ul,
+.section ol {
+    padding-left: 2rem;
+}
+
+
+
+.section ol img {
+    max-width: 100%; /* Asegura que la imagen no se salga de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 10px; /* Añade espacio entre la imagen y el texto */
+    margin-bottom: 10px; /* Añade espacio debajo de la imagen */
+    border-radius: 5px; /* Bordes redondeados para un mejor aspecto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil alrededor de las imágenes */
+}
+
+
+
+
+/* ============================
+    Galería de Ejemplos
+============================ */
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    width: 30%;
+    margin: 1rem;
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-container p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* ============================
+    Pie de Página
+============================ */
+
+.footer {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-info {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* ============================
+    Responsividad
+============================ */
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .secondary-nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .section h4 {
+        font-size: 1.5rem;
+    }
+
+    .image-container {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================
+    Barra de Navegación Principal
+============================ */
+
+.header-dedicado {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem 0;
+    transition: background-color 0.3s;
+}
+
+.navbar-dedicado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-dedicado {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-dedicado li {
+    position: relative;
+}
+
+.nav-dedicado a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #e8eaed;
+    padding: 10px 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-dedicado a:hover {
+    color: #ffffff;
+}
+
+.nav-dedicado a::before, 
+.nav-dedicado a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #5fb2ff;
+    transition: width 0.5s ease;
+    opacity: 0.7;
+}
+
+.nav-dedicado a::before {
+    top: 0;
+    left: 0;
+}
+
+.nav-dedicado a::after {
+    bottom: 0;
+    right: 0;
+}
+
+.nav-dedicado a:hover::before, 
+.nav-dedicado a:hover::after {
+    width: 100%;
+}
+
+.nav-dedicado li:first-child {
+    margin-right: 90px;
+}
+
+.nav-dedicado li:nth-child(2) {
+    margin-left: 4rem;
+}
+
+.burger-dedicado {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.burger-dedicado span {
+    width: 100%;
+    height: 4px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.burger-dedicado.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+}
+
+.burger-dedicado.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-dedicado.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+}
+
+@media (max-width: 768px) {
+    .burger-dedicado {
+        display: flex;
+    }
+
+    .nav-dedicado {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.959);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-dedicado.active {
+        display: flex;
+    }
+
+    .nav-dedicado li {
+        margin: 10px 0;
+    }
+
+    .nav-dedicado a {
+        font-size: 1.8rem;
+        padding: 15px 0;
+    }
+
+    .nav-dedicado li:first-child {
+        margin-right: 0;
+    }
+}
+
+/* ============================
+    Barra de Navegación Secundaria
+============================ */
+
+.secondary-nav-dedicado {
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la transparencia para ver el efecto borroso */
+    backdrop-filter: blur(10px); /* Aplica el efecto borroso */
+    position: fixed;
+    right: 0;
+    top: 60px;
+    height: 100%;
+    width: 250px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
+
+.secondary-nav-dedicado.active {
+    transform: translateX(0);
+}
+
+.nav-toggle-dedicado {
+    font-size: 24px;
+    position: absolute;
+    left: -30px;
+    top: 20px;
+    background-color: rgba(0, 0, 0, 0.596); /* Fondo negro con transparencia */
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px 0 0 4px;
+    width: 30px; /* Asegura un tamaño fijo para evitar alargado */
+    height: 40px; /* Asegura un tamaño fijo para evitar alargado */
+    z-index: 1001;
+}
+
+.secondary-nav-dedicado ul {
+    list-style: none;
+    padding: 2rem 1rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.secondary-nav-dedicado ul li {
+    display: inline-block;
+}
+
+.secondary-nav-dedicado ul li a {
+    font-size: 1rem;
+    color: #a0c0ff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.secondary-nav-dedicado ul li a:hover {
+    background-color: #ffffff33;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle-dedicado {
+        top: 10px;
+        right: 10px; /* Mantiene el ícono en la esquina derecha */
+    }
+
+    .secondary-nav-dedicado.active .nav-toggle-dedicado {
+        right: 10px; /* Asegura que el ícono no se desplace al abrir la barra */
+    }
+}
+
+/* ============================
+    Estilo para la Sección Home
+============================ */
+
+.home-dedicado {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Ajuste para que no se superponga con la barra de navegación */
+    text-align: center;
+    background: linear-gradient(to bottom, 
+        #FF7E5F,   /* Atardecer cálido */
+        #6A0572,   /* Un tono más oscuro para la transición */
+        #030D3D,   /* Tono de crepúsculo más oscuro */
+        #000000);  /* Noche */
+    color: white;
+}
+
+.home-dedicado .content-dedicado {
+    max-width: 50rem;
+}
+
+.home-dedicado .content-dedicado h3 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.home-dedicado .content-dedicado p {
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ffffff;
+}
+
+/* ============================
+    Títulos y Secciones
+============================ */
+
+.announcement-dedicado {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con transparencia */
+    backdrop-filter: blur(8px); /* Efecto borroso */
+    padding: 15px 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    color: #fff; /* Color del texto */
+    margin: 20px 0; /* Espaciado externo */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    text-align: center; /* Centrar el texto */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+}
+
+.section-dedicado {
+    padding: 4rem 2rem;
+    margin-top: 2rem;
+}
+
+.section-dedicado h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #8cb3ff; /* Color relajado y espacial */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.section-dedicado h4 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #92aaff;
+    text-align: center;
+}
+
+.section-dedicado p,
+.section-dedicado ul,
+.section-dedicado ol {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    text-align: justify;
+}
+
+.section-dedicado ul,
+.section-dedicado ol {
+    padding-left: 2rem;
+}
+
+.section-dedicado ol img {
+    max-width: 100%; /* Asegura que la imagen no se salga de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 10px; /* Añade espacio entre la imagen y el texto */
+    margin-bottom: 10px; /* Añade espacio debajo de la imagen */
+    border-radius: 5px; /* Bordes redondeados para un mejor aspecto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil alrededor de las imágenes */
+}
+
+/* ============================
+    Galería de Ejemplos
+============================ */
+
+.gallery-dedicado {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.image-container-dedicado {
+    width: 30%;
+    margin: 1rem;
+    text-align: center;
+}
+
+.image-container-dedicado img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image-container-dedicado p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* ============================
+    Pie de Página
+============================ */
+
+.footer-dedicado {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.social-links-dedicado {
+    margin-bottom: 10px;
+}
+
+.social-link-dedicado {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link-dedicado img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-info-dedicado {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* ============================
+    Responsividad
+============================ */
+
+@media (max-width: 768px) {
+    .nav-dedicado {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .secondary-nav-dedicado ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section-dedicado h2 {
+        font-size: 2rem;
+    }
+
+    .section-dedicado h4 {
+        font-size: 1.5rem;
+    }
+
+    .image-container-dedicado {
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

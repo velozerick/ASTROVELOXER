@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo'
+    <script>
+    alert("Por favor debes iniciar sesión.");
+    window.location = "inicio_sesion.php";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+
+$nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde la sesión
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +40,7 @@
                 <li><a href="#astrofotografia">Astrofotografía</a></li>
                 <li><a href="calendario.php">Calendario astronómico</a></li>
                 <li><a href="#" onclick="alert('La página EIEMEX aún no está disponible. ¡Vuelve pronto!');">EIEMEX Próximamente</a></li>
+                <li class="welcome-message">Bienvenid@ <?php echo $nombreUsuario; ?></li>
 
             </ul>
         </nav>

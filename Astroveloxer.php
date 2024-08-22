@@ -84,14 +84,14 @@ $nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde l
             </div>
         </div>
         <div class="card-grid">
-            <a class="card" id="card-celular" href="#">
+            <a class="card" id="card-celular" href="celular.php">
                 <div class="card__background" style="background-image: url('img/cel.jpg')"></div>
                 <div class="card__content">
                     <p class="card__category">Celular</p>
                     <h3 class="card__heading">Astrofotografía con Celular</h3>
                 </div>
             </a>
-            <a class="card" id="card-telescopio" href="#">
+            <a class="card" id="card-telescopio" href="Dedicado.php">
                 <div class="card__background" style="background-image: url('img/secret.jpg')"></div>
                 <div class="card__content">
                     <p class="card__category">Telescopio</p>
