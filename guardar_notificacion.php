@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param('ssss', $user_email, $evento_nombre, $fecha_evento, $tipo_notificacion);
 
     if ($stmt->execute()) {
-        echo 'Notificación guardada correctamente';
+        echo '';
 
         // Enviar el correo de notificación
         $mail = new PHPMailer(true);
@@ -28,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'mrsmonitoreoderendimientosof@gmail.com'; // Tu dirección de correo de Gmail
-            $mail->Password = 'e z c w k c p i u t c k w i d y'; // Tu contraseña de aplicación de Gmail
+            $mail->Username = 'astroveloxer@gmail.com'; // Tu dirección de correo de Gmail
+            $mail->Password = 'bxoq yezx maff rabx'; // Tu contraseña de aplicación de Gmail
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             // Configuración del remitente y destinatario
-            $mail->setFrom('mrsmonitoreoderendimientosof@gmail.com', 'Astroveloxer'); // Cambia el remitente a Astroveloxer
+            $mail->setFrom('astroveloxer@gmail.com', 'Astroveloxer'); // Cambia el remitente a Astroveloxer
             $mail->addAddress($user_email); // Dirección de correo del usuario
 
             // Establecer codificación UTF-8
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Contenido del correo
             $mail->isHTML(true);
             $mail->Subject = "Notificación del evento astronómico: $evento_nombre";
-            $mail->Body    = "Hola,<br><br>Este es un recordatorio de que has configurado una notificación para el evento astronómico <strong>$evento_nombre</strong> que ocurrirá el día $fecha_evento.<br><br>Saludos,<br>El equipo de Astroveloxer";
+            $mail->Body    = "Hola,<br><br>Este es un recordatorio de que has configurado una notificación para el evento astronómico <strong>$evento_nombre</strong> que ocurrirá el día $fecha_evento. de este mes<br><br>Saludos,<br>El equipo de Astroveloxer";
 
             // Enviar el correo
             $mail->send();

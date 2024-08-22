@@ -41,27 +41,29 @@ if ($ejecutar) {
     $mail = new PHPMailer(true);
 
     try {
-        // Configuración del servidor
+        // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Servidor SMTP de Gmail
+        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'mrsmonitoreoderendimientosof@gmail.com'; // Tu correo de Gmail
-        $mail->Password = 'e z c w k c p i u t c k w i d y'; // Tu contraseña de correo de Gmail
+        $mail->Username = 'astroveloxer@gmail.com'; // Tu dirección de correo de Gmail
+        $mail->Password = 'bxoq yezx maff rabx'; // Tu contraseña de aplicación de Gmail
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
-        // Configuración del correo
-        $mail->setFrom('your-email@gmail.com', 'MRS');
+        // Configuración del remitente y destinatario
+        $mail->setFrom('astroveloxer@gmail.com', 'Astroveloxer'); // Asegúrate de que coincida con el correo usado en $mail->Username
         $mail->addAddress($email, $nombre);
+
+        // Contenido del correo
         $mail->isHTML(true);
         $mail->Subject = 'Verifica tu correo.';
-        $mail->Body    = 'Hola ' . $nombre . ',<br><br>Bienvenido a la comunidad ASTROVELOXER. 
-        Gracias por verificar tu correo.</a>';
+        $mail->Body    = ' Hola ' . $nombre . ',<br><br>Bienvenido a la comunidad ASTROVELOXER. ';
 
+        // Enviar el correo
         $mail->send();
         echo '
         <script>
-        alert("Gracias por registrarte! Por favor, verifica tu correo electrónico.");
+        alert("Gracias por registrarte y unirte a la comunidad ASTROVELOXER! ");
         window.location = "../inicio_sesion.php";
         </script>
         ';

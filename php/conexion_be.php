@@ -3,14 +3,14 @@
 $conexion = mysqli_connect("localhost","root","","astroveloxer");
 
 
-if($conexion) {
+/*if($conexion) {
     echo 'Conexion exitosa';
 }
 else{
     echo 'no jalo';
 }
 
-
+*/
 
 
 
