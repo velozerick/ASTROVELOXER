@@ -48,7 +48,7 @@ $nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde l
     <!-- HOME SECTION -->
     <section class="home" id="home">
         <div class="content">
-            <h3>Una estrella? Un planeta?</h3>
+            <h3>¿Una estrella? ¿Un planeta?</h3>
             <p>Una página dedicada a ti, cuestionando esa pregunta.</p>
         </div>
     </section>
@@ -72,17 +72,27 @@ $nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde l
     <!-- SECCIÓN "Cómo Iniciar en Astrofotografía" -->
     <section class="como-iniciar" id="como-iniciar">
         <h1 class="heading"><span>Cómo</span> <span>Iniciar</span> en Astrofotografía</h1>
-        <div class="intro-text-container">
-            <div class="intro-text-part">
-                <p>Empezar en la astrofotografía puede parecer difícil, pero con las herramientas y guía adecuadas, cualquiera puede hacerlo.</p>
-            </div>
-            <div class="intro-text-part">
-                <p>Te ayudamos a elegir entre la simplicidad de un celular o la precisión de un telescopio.</p>
-            </div>
-            <div class="intro-text-part">
-                <p>Cada opción tiene sus ventajas, y esta guía te orientará para que tu primer paso sea el más emocionante y acertado.</p>
-            </div>
+
+
+
+        <div class="announcement-yo">
+        <p> A lo largo de mi viaje en la astrofotografía, </p>
+             
+            <p>he enfrentado frustraciones y desafíos
+             que parecían no tener solución. He creado esta página para que tú no tengas que pasar 
+             por lo mismo. Aquí te guiaré en los aspectos esenciales para que inicies y avances en 
+             este fascinante universo de la astrofotografía. </p> 
+             <p>Con el tiempo, muchas personas se han 
+             acercado a mí con preguntas como: "¿Qué tipo de telescopio debería elegir?", "¿Cómo puedo
+              tomar fotos como las tuyas?" o "Compré un telescopio, pero no logro ver nada". Este 
+              espacio está dedicado a responder esas preguntas y a ayudarte a descubrir la realidad 
+              y la maravilla de comenzar en la astrofotografía.</p>
         </div>
+
+
+
+
+
         <div class="card-grid">
             <a class="card" id="card-celular" href="celular.php">
                 <div class="card__background" style="background-image: url('img/cel.jpg')"></div>
