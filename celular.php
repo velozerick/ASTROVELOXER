@@ -138,7 +138,7 @@ $nombreUsuario = $_SESSION['usuario'];
     </li>
 </ul>
 
-<p>Para aprender más sobre cómo usar correctamente un telescopio, puedes visitar nuestro <a href="tutorial_telescopios.html">tutorial detallado</a>.</p>
+<p>Para aprender más sobre cómo usar correctamente un telescopio, puedes visitar nuestro <a href="Usa tu telescopio.php">tutorial detallado</a>.</p>
 
 
 
@@ -177,11 +177,15 @@ $nombreUsuario = $_SESSION['usuario'];
         <img src="img/celu.webp" alt="Trípode para estabilidad" width="200" height="auto">
     </li>
     <li>
-        Activa el modo nocturno de tu celular si está disponible.
+        Activa el modo nocturno de la cámara de tu celular si está disponible.
         <img src="img/celu.webp" alt="Modo nocturno en celular" width="200" height="auto">
     </li>
     <li>
-        Si tu celular lo permite, ajusta manualmente la ISO y la velocidad de obturación. Usa una ISO baja y una exposición larga para capturar más luz.
+        Debes buscar el modo profesional (PRO) en tu celular y Si tu celular lo permite, ajusta manualmente la ISO y la velocidad de obturación. Usa una ISO baja y una exposición larga para capturar más luz.
+        <img src="img/celu.webp" alt="Ajuste de ISO y obturación" width="200" height="auto">
+    </li>
+    <li>
+        Enfoca tu celular al maximo para tener una imagen clara y nítida.
         <img src="img/celu.webp" alt="Ajuste de ISO y obturación" width="200" height="auto">
     </li>
     <li>

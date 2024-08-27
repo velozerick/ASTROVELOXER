@@ -76,10 +76,10 @@ $nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde l
 
 
         <div class="announcement-yo">
-        <p> A lo largo de mi viaje en la astrofotografía, </p>
+        <p> A lo largo de mi viaje en la astrofotografía, he enfrentado frustraciones y desafíos
+        que parecían no tener solución. </p>
              
-            <p>he enfrentado frustraciones y desafíos
-             que parecían no tener solución. He creado esta página para que tú no tengas que pasar 
+            <p> He creado esta página para que tú no tengas que pasar 
              por lo mismo. Aquí te guiaré en los aspectos esenciales para que inicies y avances en 
              este fascinante universo de la astrofotografía. </p> 
              <p>Con el tiempo, muchas personas se han 
