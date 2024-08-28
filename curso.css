@@ -511,13 +511,12 @@ video {
     position: relative;
     display: inline-block;
     text-align: center;
-    margin: 10px;
+    margin: 20px;
 }
 
 .tool-link img {
-    width: 80px;
     height: auto;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
@@ -526,14 +525,26 @@ video {
 .tool-link img:active {
     transform: scale(1.1);
     opacity: 0.8;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.886); /* Efecto de resplandor */
 }
-
-
 
 .tool-link::after {
     content: ''; /* Oculta el tooltip por defecto */
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+/* Agrega un resplandor más suave cuando el mouse está cerca de la imagen */
+.tool-link:hover img {
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+    .tool-link img {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
 }
 
 

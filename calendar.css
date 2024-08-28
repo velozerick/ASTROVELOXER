@@ -126,6 +126,7 @@ body {
     overflow: hidden; /* Esconder el brillo fuera del contenedor */
     cursor: pointer;
     transition: transform 0.3s;
+    font-size: 0.9rem;
 }
 .day-name {
     font-weight: bold;
@@ -175,12 +176,13 @@ body {
 
 .event-info {
     display: block;
-    margin-top: 10px;
-    font-size: 0.9rem;
+    margin-top: 5px;
+    font-size: 0.75rem;
     color: #020202;
     background-color: rgba(172, 196, 245, 0.9); /* Fondo de la información del evento */
-    padding: 5px;
-    border-radius: 5px;
+    padding: 7px;
+    
+    border-radius: 4px;
 }
 
 .day.event:hover::before {
@@ -188,7 +190,7 @@ body {
 }
 
 .day.event:hover {
-    transform: scale(1.05); /* Aumenta el tamaño ligeramente */
+    transform: scale(1.2); /* Aumenta el tamaño ligeramente */
 }
 .empty {
     background-color: transparent; /* Fondo transparente para días vacíos */
@@ -219,11 +221,15 @@ body {
     .main-title {
         font-size: 2.5rem; /* Ajusta el tamaño del título */
     }
+    
 }
 
 @media (max-width: 480px) {
     .main-title {
-        font-size: 2rem; /* Ajusta el tamaño del título para pantallas aún más pequeñas */
+        font-size: 2.3rem; /* Ajusta el tamaño del título para pantallas aún más pequeñas */
+    }
+    .event-info {
+        font-size: 0.45rem; /* Disminuye el tamaño del texto */
     }
 }
 
@@ -238,11 +244,11 @@ body {
 
     .day-name, .day, .empty {
         padding: 5px;
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
 
     .calendar-container h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 }
 
@@ -250,15 +256,25 @@ body {
     .calendar-grid {
         grid-template-columns: repeat(7, 1fr);
         gap: 3px;
+        .event-info {
+            font-size: 0.4rem; /* Disminuye el tamaño del texto */
+            padding: 10px;
+           
+            
+        }
+    }
+    .calendar-grid {
+        gap: 10px;
+       
     }
 
     .day-name, .day, .empty {
-        padding: 3px;
+        padding: 2px;
         font-size: 0.9rem;
     }
 
     .calendar-container h2 {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }
 
@@ -268,7 +284,7 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.466);
+    background-color: rgba(0, 0, 0, 0.812);
     padding: 0.4rem 0;
     transition: background-color 0.3s;
 }
@@ -399,6 +415,9 @@ body {
 
     .nav li:first-child {
         margin-right: 0;
+    }
+    .event-info {
+        font-size: 0.75rem; /* Disminuye el tamaño del texto */
     }
 }
 
@@ -721,4 +740,71 @@ body {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+}
+
+
+
+
+/* ============================
+    Efectos Automáticos en Dispositivos Móviles
+============================ */
+@media (max-width: 768px) {
+    /* Efecto en Scrollbar */
+    ::-webkit-scrollbar-thumb {
+        background-color: #4a91cc;  /* Color del thumb al hacer hover */
+    }
+
+    /* Fondo Animado de Estrellas */
+    .star {
+        opacity: 1.5;
+    }
+
+ 
+    .day.event {
+        transform: scale(0.9); /* Aumenta el tamaño ligeramente */
+    }
+
+    /* Efecto de Hover en Eventos */
+    .event {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgb(0, 119, 204); /* Color del resplandor */
+    }
+
+    /* Efecto en Botones Astro */
+    .astro-button {
+        background-color: #005fa3;
+        transform: translateY(-5px); /* Efecto de levantamiento */
+    }
+
+    .astro-button::before {
+        left: 150%;
+    }
+
+    /* Efecto de Rotación del Ícono en Botones Astro */
+    .astro-button i {
+        transform: rotate(360deg); /* Gira el ícono 360 grados */
+    }
+
+    /* Efecto en el Botón de Enviar */
+    .send-button {
+        background-color: #218838; /* Verde más oscuro */
+    }
+
+    /* Efecto en el Botón de Cancelar */
+    .cancel-button {
+        background-color: #c82333; /* Rojo más oscuro */
+    }
+
+    /* Efecto de Hover en Links de Navegación */
+    .nav a {
+        color: #ffffff;
+    }
+    .nav a::before, .nav a::after {
+        width: 100%;
+    }
+
+    /* Efecto de Hover en Popup */
+    .notification-popup button {
+        background-color: #005fa3;
+    }
 }

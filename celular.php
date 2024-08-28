@@ -53,7 +53,6 @@ $nombreUsuario = $_SESSION['usuario'];
         <ul class="nav-items">
             <li><a href="#intro">Introducción</a></li>
             <li><a href="#reality">Realidad</a></li>
-            <li><a href="#equipment">Equipos</a></li>
             <li><a href="#mobile-photography">Fotografía Celular</a></li>
             <li><a href="#telescope-photography">Fotografía Telescopio</a></li>
             <li><a href="#Procesamiento">Postprocesamiento</a></li>
@@ -114,44 +113,12 @@ $nombreUsuario = $_SESSION['usuario'];
                      brillantes en una pequeña porción del cielo.</li>
                 </ul>
 
-                <h4>Tipos de Monturas y su Uso Correcto</h4>
-<ul class="monturas">
-    <li>
-        <img src="img/alt.webp" alt="Montura Altazimutal" class="montura-img">
-        <div>
-            <strong>Montura Altazimutal:</strong> Es la más sencilla de usar, adecuada para la observación visual. Sin embargo,
-             no es ideal para astrofotografía de larga exposición debido a la falta de seguimiento preciso.
-        </div>
-    </li>
-    <li>
-        <img src="img/eq.webp" alt="Montura Ecuatorial" class="montura-img">
-        <div>
-            <strong>Montura Ecuatorial:</strong> Permite un seguimiento más preciso del movimiento de los objetos celestes, siendo más adecuada para la astrofotografía.
-        </div>
-    </li>
-    <li>
-        <img src="img/eqm.webp" alt="Montura Ecuatorial Motorizada" class="montura-img">
-        <div>
-            <strong>Montura Ecuatorial Motorizada:</strong> La opción más avanzada para astrofotografía, 
-            permite exposiciones largas sin que los objetos se desplacen fuera del campo de visión.
-        </div>
-    </li>
-</ul>
-
-<p>Para aprender más sobre cómo usar correctamente un telescopio, puedes visitar nuestro <a href="Usa tu telescopio.php">tutorial detallado</a>.</p>
+               
 
 
 
 
-            <!-- Equipos Necesarios -->
-            <div class="section" id="equipment">
-                <h2>Equipos Necesarios</h2>
-                <ul>
-                    <li>Trípode para estabilidad.</li>
-                    <li>Mapa estelar (Una de estas aplicaciónes) "Skyportal, Stellarium, StarWalk".</li>
-                    <li>Adaptador para celular si vas a utilizar un telescopio.</li>
-                </ul>
-            </div>
+
 
             <!-- Fotografía Nocturna con un Celular -->
             <div class="section" id="mobile-photography">
@@ -164,13 +131,26 @@ $nombreUsuario = $_SESSION['usuario'];
                     <li><strong>Planetas Brillantes:</strong> Obtén imágenes de planetas como Júpiter y Venus, aunque con detalles limitados.</li>
                     <li><strong>Estrellas y Constellaciones:</strong> Captura constelaciones enteras y, en noches claras, incluso la Vía Láctea.</li>
                     <li><strong>Paisajes Nocturnos:</strong> Combina el cielo estrellado con paisajes terrestres para imágenes impresionantes.</li>
+                    <p>Estos pasos son esenciales para capturar paisajes nocturnos con la mayor precisión y belleza posible. Desde la selección del equipo adecuado hasta la configuración óptima de la cámara, cada detalle cuenta cuando se trata de capturar la majestuosidad del cielo nocturno. Ya sea que estés fotografiando una vasta extensión de estrellas, la silueta de montañas bajo la luz de la luna, o la aurora boreal, estos pasos te guiarán para obtener imágenes impresionantes y llenas de detalle. Asegúrate de seguir cada uno de estos consejos para maximizar la claridad y la profundidad de tus fotos, permitiéndote capturar la esencia de la noche en todo su esplendor.</p>
+
                 </ul>
 
-                <h4>Empecemos</h4>
+            
+
+                 <!-- Equipos Necesarios -->
+            <div class="section" id="equipment">
+                <h2>Empecemos</h2>
+                <h4>Equipo recomendado</h4>
+                <ul>
+                    <li>Trípode para estabilidad.</li>
+                    <li>Mapa estelar (Una de estas aplicaciónes) "Skyportal, Stellarium, StarWalk".</li>
+                    <li>Adaptador para celular si vas a utilizar un telescopio.</li>
+                </ul>
+            </div>
 <ol>
     <li>
-        Encuentra un lugar oscuro, lejos de la contaminación lumínica.
-        <img src="img/celu.webp" alt="Lugar oscuro para astrofotografía" width="200" height="auto">
+        Si te es posible encuentra un lugar oscuro, lejos de la contaminación lumínica .
+        <img src="img/IMG_4354.PNG" alt="Lugar oscuro para astrofotografía" width="200" height="auto">
     </li>
     <li>
         Utiliza un trípode para mantener el celular estable y evitar que las fotos salgan movidas.
@@ -194,6 +174,10 @@ $nombreUsuario = $_SESSION['usuario'];
     </li>
 </ol>
 
+
+
+
+
 <!-- Fotografía con Celular y Telescopio -->
 <div class="section" id="telescope-photography">
     <h2>Fotografía con Celular y Telescopio</h2>
@@ -204,6 +188,12 @@ $nombreUsuario = $_SESSION['usuario'];
         <li><strong>Luna con Detalles Finos:</strong> Captura cráteres y mares con gran claridad.</li>
         <li><strong>Planetas como Júpiter y Saturno:</strong> Visualiza los anillos de Saturno y las lunas de Júpiter.</li>
         <li><strong>Nebulosas y Estrellas Brillantes:</strong> Con técnicas adecuadas, puedes capturar objetos de cielo profundo como la Nebulosa de Orión.</li>
+        <p>Acoplar un celular a un telescopio es una excelente manera de iniciarse en la astrofotografía. Esta combinación te permitirá capturar imágenes impresionantes
+             de la Luna, los planetas y algunas estrellas brillantes con relativa facilidad. Sin embargo, es importante ser realistas: aunque esta técnica es ideal para
+              principiantes y para obtener resultados sorprendentes con equipo básico, tiene sus limitaciones. Para capturar imágenes más profesionales, con detalles
+               finos de objetos de cielo profundo como galaxias lejanas o nebulosas oscuras, un celular acoplado a un telescopio no será suficiente. En esos casos,
+                es recomendable utilizar cámaras especializadas y equipo más avanzado para lograr la calidad y precisión que estas tomas requieren.</p>
+
     </ul>
 
     <h4>Empecemos</h4>
@@ -257,19 +247,21 @@ $nombreUsuario = $_SESSION['usuario'];
 <div class="post-processing-section" id="Procesamiento">
     <h2>Postprocesamiento de Astrofotografía</h2>
     <p class="intro-text">
-        El postprocesamiento es una etapa crucial en la astrofotografía, ya que permite mejorar la calidad de las imágenes y videos capturados con 
-        un celular y telescopio. A través de este proceso, se pueden destacar detalles ocultos en las capturas, eliminar el ruido, y obtener
-         un resultado final más claro y definido. Utilizaremos herramientas como 
+    El postprocesamiento es clave en la astrofotografía, especialmente cuando usas un celular acoplado a un telescopio. 
+    Esta etapa permite mejorar la claridad, reducir el ruido y resaltar detalles ocultos en tus capturas. Para obtener 
+    resultados óptimos, es recomendable utilizar herramientas especializadas como PIPP, Autostakkert y RegiStax, (totalmente gratuitas) que 
+    te ayudarán a mejorar significativamente la calidad de tus imágenes astronómicas </p> 
+
         <a href="https://astrowhat.com/resources/planetary-imaging-preprocessor-pipp.38/" class="tool-link" target="_blank">
-            <img src="img/pipp.jpg" alt="PIPP">
+            <img src="img/pipp.jpg" alt="PIPP" width="100px">
         </a>
         <a href="https://www.autostakkert.com/" class="tool-link" target="_blank">
-            <img src="img/as.png" alt="AutoStakkert">
+            <img src="img/as.png" alt="AutoStakkert" width="100px">
         </a>
         <a href="https://www.astronomie.be/registax/" class="tool-link" target="_blank">
-            <img src="img/reg.jpg" alt="RegiStax">
-        </a> para guiarte en este proceso.
-    </p>
+            <img src="img/reg.jpg" alt="RegiStax" width="100px">
+        </a> 
+    
 </div>
 
 

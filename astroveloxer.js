@@ -166,3 +166,24 @@ function toggleSecondaryNav() {
     toggle.classList.toggle('active');
 }
 
+
+
+
+
+function toggleText() {
+    const textElement = document.querySelector('.hidden-text');
+    if (textElement.style.display === "none" || textElement.style.display === "") {
+        textElement.style.display = "block";
+        setTimeout(() => {
+            textElement.classList.add('show');
+            textElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 10); // Pequeña demora para permitir que la transición funcione
+    } else {
+        textElement.classList.remove('show');
+        setTimeout(() => {
+            textElement.style.display = "none";
+        }, 1000); // Esperar a que termine la transición antes de ocultar
+    }
+}
+
+

@@ -59,11 +59,13 @@ $nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde l
 
         <div class="row">
             <div class="image">
-                <img src="img/secret.jpg" alt="nosotros">
+                <img src="img/secret.jpg" alt="nosotros" width="430px">
             </div>
             <div class="content">
-                <p>Desde siempre, la humanidad ha mirado al cielo en busca de respuestas. Las estrellas y planetas nos recuerdan lo vasto y misterioso que es el universo.</p>
-                <p>La astronomía es la ciencia que estudia el cosmos, mientras que la astrofotografía es el arte de capturar su belleza en imágenes. Juntas, nos permiten explorar y entender el universo.</p>
+                <p>Desde siempre, la humanidad ha mirado al cielo en busca de respuestas. Las estrellas y planetas
+                     nos recuerdan lo vasto y misterioso que es el universo.</p>
+                <p>La astronomía es la ciencia que estudia el cosmos, mientras que la astrofotografía es el arte 
+                    de capturar su belleza en imágenes. Juntas, nos permiten explorar y entender el universo.</p>
                 <p>Mirar hacia arriba es una invitación a descubrir y capturar la maravilla del cielo nocturno.</p>
             </div>
         </div>
@@ -76,20 +78,21 @@ $nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde l
 
 
         <div class="announcement-yo">
-        <p> A lo largo de mi viaje en la astrofotografía, he enfrentado frustraciones y desafíos
-        que parecían no tener solución. </p>
-             
-            <p> He creado esta página para que tú no tengas que pasar 
-             por lo mismo. Aquí te guiaré en los aspectos esenciales para que inicies y avances en 
-             este fascinante universo de la astrofotografía. </p> 
-             <p>Con el tiempo, muchas personas se han 
-             acercado a mí con preguntas como: "¿Qué tipo de telescopio debería elegir?", "¿Cómo puedo
-              tomar fotos como las tuyas?" o "Compré un telescopio, pero no logro ver nada". Este 
-              espacio está dedicado a responder esas preguntas y a ayudarte a descubrir la realidad 
-              y la maravilla de comenzar en la astrofotografía.</p>
-        </div>
-
-
+    <button class="reveal-button" onclick="toggleText()">Consejos de un astrofotógrafo</button>
+    
+    <div id="hidden-text" class="hidden-text">
+        <p>A lo largo de mi viaje en la astrofotografía, he enfrentado frustraciones y desafíos que parecían no tener solución.</p>
+        <p>He creado esta página para que tú no tengas que pasar por lo mismo. Aquí te guiaré en los aspectos esenciales para 
+            que inicies y avances en este fascinante universo de la astrofotografía.</p>
+        <p>Con el tiempo, muchas personas se han acercado a mí con preguntas como: "¿Qué tipo de telescopio debería elegir?", 
+            "¿Cómo puedo tomar fotos como las tuyas?" o "Compré un telescopio, pero no logro ver nada". Este espacio está dedicado
+             a responder esas preguntas y a ayudarte a descubrir la realidad y la maravilla de comenzar en la astrofotografía.</p>
+        <p>Si estás considerando comprar un telescopio o aprender a usar diferentes monturas, pero no tienes experiencia previa,
+             te recomiendo explorar la sección <strong>Guía completa de telescopios y monturas</strong>. Aquí encontrarás un 
+             <a href="Usa tu telescopio.php" class="tutorial-link">tutorial detallado</a> que te guiará paso a paso en la elección
+              y uso de un telescopio, así como en el manejo de diversas monturas.</p>
+    </div>
+</div>
 
 
 
