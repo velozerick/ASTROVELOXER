@@ -1,5 +1,4 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -11,7 +10,7 @@ include 'conexion_be.php';
 
 $nombre = $_POST['nombre'];
 $email = $_POST['email'];
-$contrasena = $_POST['contrasena'];
+$contrasena = password_hash($_POST['contrasena'], PASSWORD_BCRYPT);  // Encriptar la contraseña
 $token = bin2hex(random_bytes(50)); // Genera un token único
 
 $query = "INSERT INTO usuarios(nombre, email, contrasena, verificado, token)

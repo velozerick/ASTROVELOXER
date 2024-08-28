@@ -33,7 +33,7 @@
             <h1 class="main-title">CALENDARIO ASTRONÓMICO</h1>
             <p class="calendar-description">Explora los eventos astronómicos más importantes de este mes y mantente al día.</p>
             <div class="restricted-message">
-                <p>Para acceder al calendario completo y recibir notificaciones de eventos astronómicos, por favor <a href="inicio_sesion.html" id="login-link">inicia sesión</a> o <a href="registro.html" id="register-link">regístrate</a>.</p>
+                <p>Para acceder al calendario completo y recibir notificaciones de eventos astronómicos, por favor <a href="inicio_sesion.php" id="login-link">inicia sesión</a> o <a href="registro.php" id="register-link">regístrate</a>.</p>
             </div>
         </div>
     </section>

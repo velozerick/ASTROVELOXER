@@ -127,7 +127,7 @@
         <h3> Comparte tu Visión del Cosmos</h3>
         <p>Únete a nuestra comunidad exclusiva de astrofotógrafos. Solo los usuarios registrados pueden ver y compartir sus capturas del cielo estrellado.</p>
         <div class="restricted-message">
-            <p>Para compartir tus fotos y ver la galería completa, por favor <a href="inicio_sesion.html" id="login-link">inicia sesión</a> o <a href="registro.html" id="register-link">regístrate</a>.</p>
+            <p>Para compartir tus fotos y ver la galería completa, por favor <a href="inicio_sesion.php" id="login-link">inicia sesión</a> o <a href="registro.php" id="register-link">regístrate</a>.</p>
         </div>
     </div>
 </section>
