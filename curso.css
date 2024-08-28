@@ -589,34 +589,142 @@ video {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================
     Galería de Ejemplos
 ============================ */
 
 .gallery {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px; /* Espacio entre imágenes */
+}
+
+.gallery h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.click-message {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .image-container {
-    width: 30%;
-    margin: 1rem;
+    flex: 1 1 calc(30% - 2rem);
+    margin-bottom: 1rem;
     text-align: center;
+    cursor: pointer;
 }
 
 .image-container img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    width: 70%;
+    border-radius: 15px;
+    box-shadow: 1px 4px 30px rgba(62, 62, 62, 0.786);
 }
 
-.image-container p {
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #f5f1f165;
+/* ============================
+    Lightbox
+============================ */
+
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Agregado para que haya un espacio alrededor del contenido */
 }
+
+.lightbox-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.lightbox-description {
+    color: #ffffff;
+    margin-left: 20px;
+    max-width: 35%;
+    word-wrap: break-word;
+}
+
+/* Botón de cierre */
+.close-button {
+    position: absolute;
+    top: -20px; /* Subido para que no interfiera con el contenido */
+    right: -20px; /* Movido hacia la derecha para mayor separación */
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo para que sea más visible */
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 1001; /* Asegura que esté por encima de otros elementos */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbbbbb;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ============================
     Pie de Página
@@ -681,6 +789,57 @@ video {
     }
 }
 
+
+
+@media (max-width: 940px) {
+    .lightbox-description {
+        font-size: 0.4rem !important;
+    }
+}
+
+
+/* Ajustes para pantallas medianas */
+@media (max-width: 940px) {
+
+    
+    .heading {
+        font-size: 2rem; /* Ajustar el tamaño de los títulos */
+    }
+
+    .explore-home .explore-content h3 {
+        font-size: 3rem; /* Reducir el tamaño del título en la sección 'Explora y Comparte el Cosmos' */
+    }
+
+    .home .content h3 {
+        font-size: 3.5rem; /* Reducir el tamaño del título en la sección 'Home' */
+    }
+
+    .publish-content h3 {
+        font-size: 2.5rem; /* Reducir el tamaño del título en la sección 'Publica tus fotos' */
+    }
+
+    .footer-info {
+        font-size: 0.9rem; /* Ajustar el tamaño del texto en el pie de página */
+    }
+
+    .explore-home .explore-content p,
+    .home .content p,
+    .publish-content p {
+        font-size: 1.5rem; /* Ajustar el tamaño del párrafo */
+    }
+
+    
+
+    .nav a {
+        font-size: 0.66rem; /* Ajustar el tamaño de fuente en la navegación */
+       margin-left: 2px;
+       margin-right: 2px;
+      
+        
+    }
+    
+}
+
 @media (max-width: 768px) {
     .video-container {
         max-width: 48%; /* Ajusta el tamaño a la mitad del contenedor en pantallas medianas */
@@ -722,6 +881,9 @@ video {
         margin-bottom: 10px; /* Añade espacio debajo de cada imagen para evitar amontonamiento */
     }
 }
+
+
+
 
 
 

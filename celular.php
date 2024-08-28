@@ -311,24 +311,73 @@ $nombreUsuario = $_SESSION['usuario'];
 
 
 
+<!-- Galería de Ejemplos -->
+<div class="gallery" id="gallery">
+    <h2>Galería de Ejemplos</h2>
+    <p class="click-message">Haz clic en las imágenes para ver su descripción.</p>
 
+    <div class="image-container" onclick="showLightbox(this)">
+        <img src="img/ori.jpg" alt="Nebulosa de Orión">
+        <p class="description" style="display: none;">La Nebulosa de Orión (M42), capturada con un Samsung Galaxy S21, con 
+            exposición de 30 segundos, lo que permitió resaltar
+            detalles de esta región de formación estelar, a pesar de las limitaciones
+            típicas de la astrofotografía móvil.</p>
+    </div>
 
-            <!-- Galería de Ejemplos -->
-            <div class="gallery" id="gallery">
-                <h2>Galería de Ejemplos</h2>
-                <div class="image-container">
-                    <img src="img/celu.webp" alt="Ejemplo de astrofotografía con celular"  width="200" height="auto">
-                    <p>Imagen capturada con un iPhone 12, ajustando la exposición a 10 segundos.</p>
-                </div>
-                <div class="image-container">
-                    <img src="img/celu.webp" alt="Ejemplo de astrofotografía con celular"  width="200" height="auto">
-                    <p>Imagen capturada con un Samsung Galaxy S21, utilizando un trípode y lente adicional.</p>
-                </div>
-                <div class="image-container">
-                    <img src="img/celu.webp" alt="Ejemplo de astrofotografía con celular y telescopio"  width="200" height="auto">
-                    <p>Júpiter y sus lunas capturadas con un telescopio acoplado a un iPhone.</p>
-                </div>
-            </div>
+    <div class="image-container" onclick="showLightbox(this)">
+        <img src="img/jupcel (2).jpg" alt="Júpiter y su luna">
+        <p class="description" style="display: none;">Júpiter y una de sus lunas capturadas con Samsung Galaxy y telescopio.</p>
+    </div>
+
+    <div class="image-container" onclick="showLightbox(this)">
+        <img src="img/Luna 2.jpg" alt="La Luna">
+        <p class="description" style="display: none;">La Luna capturada con un Samsung acoplado a un telescopio.</p>
+    </div>
+</div>
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation();">
+        <span class="close-button" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="Imagen ampliada">
+        <div class="lightbox-description">
+            <p id="lightboxText"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function showLightbox(container) {
+        var img = container.querySelector("img");
+        var description = container.querySelector(".description");
+
+        if (img && description) {
+            document.getElementById("lightboxImage").src = img.src;
+            document.getElementById("lightboxText").innerText = description.innerText;
+            document.getElementById("lightbox").style.display = "flex";
+        } else {
+            console.error("Error: No se pudo encontrar la imagen o la descripción.");
+        }
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+        document.getElementById("lightboxImage").src = "";
+        document.getElementById("lightboxText").innerText = "";
+    }
+
+    // Asignar la función de mostrar lightbox a cada contenedor de imagen
+    document.querySelectorAll('.image-container').forEach(function(container) {
+        container.onclick = function() {
+            showLightbox(this);
+        };
+    });
+
+    // Asignar la función de cerrar lightbox al botón de cierre
+    document.querySelector('.close-button').onclick = closeLightbox;
+});
+</script>
+
 
 
 
@@ -351,7 +400,6 @@ $nombreUsuario = $_SESSION['usuario'];
                 <p>No te desanimes si las primeras fotos no salen como esperas. La práctica hace al maestro, y la astrofotografía requiere paciencia y experimentación.</p>
             </div>
         </div>
-
 
 
 
