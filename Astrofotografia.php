@@ -1,217 +1,1148 @@
-<?php
-session_start();
-
-if(!isset($_SESSION['usuario'])){
-    echo'
-    <script>
-    alert("Por favor debes iniciar sesión.");
-    window.location = "inicio_sesion.php";
-    </script>
-    ';
-    session_destroy();
-    die();
-}
-
-$nombreUsuario = $_SESSION['usuario'];  // Obtener el nombre del usuario desde la sesión
-?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrofotografía</title>
-    <link rel="stylesheet" href="Astroveloxer.css">
-   
+    <title>Astroveloxer</title>
 </head>
 <body>
     <div class="stars"></div>
     
-    <!-- Barra de Navegación -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="burger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav">
-                <li><a href="Astroveloxer.php">ASTROVELOXER</a></li>
-                <li><a href="#astrofotografia">Astrofotografía</a></li>
-                <li><a href="calendario.php">Calendario astronómico</a></li>
-                <li><a href="#" onclick="alert('La página EIEMEX aún no está disponible. ¡Vuelve pronto!');">EIEMEX Próximamente</a></li>
-                <li class="welcome-message">Bienvenid@ <?php echo $nombreUsuario; ?></li>
-
-            </ul>
-        </nav>
+    <!-- HEADER -->
+    <header class="top-header">
+        <a href="<?= base_url('login') ?>" class="login-btn">Iniciar sesión</a>
     </header>
-    
+
     <!-- HOME SECTION -->
-    <section class="explore-home" id="home">
-        <div class="explore-content">
-            <h3>Explora y Comparte el Cosmos</h3>
-            <p>Sumérgete en la belleza del universo a través de nuestra colección de imágenes astronómicas, y únete a la comunidad compartiendo tus propias capturas del cielo.</p>
+    <section class="home" id="home">
+        <div class="content" data-scroll-animation>
+            <h3>¿Una estrella? ¿Un planeta?</h3>
+            <p data-scroll-animation>Una página dedicada a ti, cuestionando esa pregunta.</p>
         </div>
     </section>
-    
 
-    <!-- SECCIÓN DE ASTROFOTOGRAFÍA -->
-    <section class="astrofotografia" id="astrofotografia">
-        <h1 class="heading">Astrofotografía</h1>
-        
-        <!-- Filtros de imágenes -->
-        <div class="filter-buttons">
-            <button data-filter="all" class="active">Todo</button>
-            <button data-filter="nebulosa">Nebulosas</button>
-            <button data-filter="planeta">Planetas</button>
-            <button data-filter="galaxia">Galaxias</button>
-        </div>
+    <!-- NOSOTROS SECTION -->
+    <section class="nosotros" id="Iniciar">
+        <h1 class="heading"><span>El</span> <span>Porqué</span> <span>Ver</span> <span>Hacia</span> Arriba</h1>
 
-<!-- Galería de imágenes -->
-<div class="image-gallery">
-    <div class="image-item galaxia" onclick="showImage('img/BD3E5271-1BBC-4657-8336-3CC50B5EB838.jpg', '<ul><li><strong>Nombre:</strong> Galaxia de la Aguja (Caldwell 38) (NGC 4565)</li><li><strong>Distancia:</strong> 40 millones de años luz</li><li><strong>Magnitud aparente:</strong> 9.6</li><li><strong>Constelación:</strong> Coma Berenices</li><li><strong>Tipo de objeto:</strong> Galaxia espiral</li></ul>')">
-        <img src="img/BD3E5271-1BBC-4657-8336-3CC50B5EB838.jpg" alt="Galaxia de la Aguja" loading="lazy" width="400" height="200">
-        <p>Galaxia de la Aguja</p>
-    </div>
-    
-    <div class="image-item galaxia" onclick="showImage('img/BODE_ASTROVELOXER (1).jpg', '<ul><li><strong>Nombre:</strong> Galaxia de Bode (M81) y Galaxia del Cigarro (M82)</li><li><strong>Distancia:</strong> 12 millones de años luz (ambas galaxias)</li><li><strong>Magnitud aparente:</strong> M81 (6.9), M82 (8.4)</li><li><strong>Constelación:</strong> Osa Mayor</li><li><strong>Tipo de objeto:</strong> M81: Galaxia espiral, M82: Galaxia irregular y galaxia con brote estelar</li></ul>')">
-        <img src="img/BODE_ASTROVELOXER (1).jpg" alt="Galaxia de Bode y Cigarro" loading="lazy" width="400" height="200">
-        <p>Galaxia de Bode y Galaxia del Cigarro</p>
-    </div>
-    
-    
-    <div class="image-item planeta" onclick="showImage('img/jup11.jpg', '<ul><li><strong>Nombre:</strong> Júpiter</li><li><strong>Distancia media del Sol:</strong> 778 millones de km</li><li><strong>Diámetro:</strong> 142,984 km</li><li><strong>Tipo de objeto:</strong> Planeta gigante gaseoso</li><li><strong>Características:</strong> El planeta más grande del Sistema Solar, famoso por su Gran Mancha Roja y sus 79 lunas conocidas, incluyendo las cuatro lunas galileanas: Ío, Europa, Ganimedes y Calisto</li></ul>')">
-        <img src="img/jup11.jpg" alt="Júpiter" loading="lazy" width="400" height="200">
-        <p>Júpiter</p>
-    </div>
-    
-
-    <div class="image-item luna" onclick="showImage('img/lun_Original Copy (1).JPG', '<ul><li><strong>Nombre:</strong> La Luna</li><li><strong>Distancia media de la Tierra:</strong> 384,400 km</li><li><strong>Diámetro:</strong> 3,474.8 km</li><li><strong>Tipo de objeto:</strong> Satélite natural</li><li><strong>Características:</strong> Único satélite natural de la Tierra, presenta fases debido a su órbita alrededor de la Tierra, con una superficie marcada por cráteres, mares lunares y montañas</li></ul>')">
-        <img src="img/lun_Original Copy (1).JPG" alt="La Luna" loading="lazy" width="400" height="200">
-        <p>La Luna</p>
-    </div>
-    
-    <div class="image-item galaxia" onclick="showImage('img/M101_ASTROVELOXER (1).jpg', '<ul><li><strong>Nombre:</strong> Galaxia del Molinete (M101)</li><li><strong>Distancia:</strong> 21 millones de años luz</li><li><strong>Magnitud aparente:</strong> 7.9</li><li><strong>Constelación:</strong> Osa Mayor</li><li><strong>Tipo de objeto:</strong> Galaxia espiral</li><li><strong>Características:</strong> Una de las galaxias espirales más grandes conocidas, con un diámetro de aproximadamente 170,000 años luz</li></ul>')">
-        <img src="img/M101_ASTROVELOXER (1).jpg" alt="Galaxia del Molinete" loading="lazy" width="400" height="200">
-        <p>Galaxia del Molinete</p>
-    </div>
-    
-    <div class="image-item galaxia" onclick="showImage('img/NGC4038_ASTROVELOXER.jpg', '<ul><li><strong>Nombre:</strong> NGC 4038 y NGC 4039 (Galaxias Antennae)</li><li><strong>Distancia:</strong> 60 millones de años luz</li><li><strong>Magnitud aparente:</strong> 10.7</li><li><strong>Constelación:</strong> Corvus</li><li><strong>Tipo de objeto:</strong> Galaxias en colisión</li><li><strong>Características:</strong> Conocidas como las Galaxias Antennae debido a las largas colas de estrellas que se extienden hacia afuera, resultado de la colisión entre ambas galaxias</li></ul>')">
-        <img src="img/NGC4038_ASTROVELOXER.jpg" alt="Galaxias Antennae" loading="lazy" width="400" height="200">
-        <p>NGC 4038 y NGC 4039 (Galaxias Antennae)</p>
-    </div>
-    
-    <div class="image-item nebulosa" onclick="showImage('img/ORION-velozeronly~3.jpg', '<ul><li><strong>Nombre:</strong> Nebulosa de Orión (M42)</li><li><strong>Distancia:</strong> 1,344 años luz</li><li><strong>Magnitud aparente:</strong> 4.0</li><li><strong>Constelación:</strong> Orión</li><li><strong>Tipo de objeto:</strong> Nebulosa de emisión</li><li><strong>Características:</strong> Una de las nebulosas más brillantes en el cielo, visible a simple vista, región de formación estelar activa, hogar de muchas estrellas jóvenes y protoestrellas</li></ul>')">
-        <img src="img/ORION-velozeronly~3.jpg" alt="Nebulosa de Orión" loading="lazy" width="400" height="200">
-        <p>Nebulosa de Orión</p>
-    </div>
-    
-    <div class="image-item planeta" onclick="showImage('img/saturn (1).jpg', '<ul><li><strong>Nombre:</strong> Saturno</li><li><strong>Distancia media del Sol:</strong> 1,429 millones de km</li><li><strong>Diámetro:</strong> 120,536 km</li><li><strong>Tipo de objeto:</strong> Planeta gigante gaseoso</li><li><strong>Características:</strong> Conocido por sus prominentes anillos compuestos de hielo y roca, posee 83 lunas conocidas, siendo Titán la más grande y una de las más interesantes para la exploración</li></ul>')">
-        <img src="img/saturn (1).jpg" alt="Saturno" loading="lazy" width="400" height="200">
-        <p>Saturno</p>
-    </div>
-    
-    <div class="image-item estrella" onclick="showImage('img/sunfull_ASTROVELOXER.jpg', '<ul><li><strong>Nombre:</strong> El Sol</li><li><strong>Distancia media de la Tierra:</strong> 149.6 millones de km (1 Unidad Astronómica)</li><li><strong>Diámetro:</strong> 1,392,700 km</li><li><strong>Tipo de objeto:</strong> Estrella enana amarilla (tipo espectral G2V)</li><li><strong>Características:</strong> Estrella central del Sistema Solar y fuente principal de energía para la Tierra, compuesto principalmente de hidrógeno (74%) y helio (24%), con energía producida a través de la fusión nuclear en su núcleo</li></ul>')">
-        <img src="img/sunfull_ASTROVELOXER.jpg" alt="El Sol" loading="lazy" width="400" height="200">
-        <p>El Sol</p>
-    </div>
-    
-    <div class="image-item nebulosa" onclick="showImage('img/LAGOON.jpg', '<ul><li><strong>Nombre:</strong> Nebulosa de la Laguna (M8) (NGC 6523)</li><li><strong>Distancia:</strong> 4,100 años luz</li><li><strong>Magnitud aparente:</strong> 6.0</li><li><strong>Constelación:</strong> Sagitario</li><li><strong>Tipo de objeto:</strong> Nebulosa de emisión</li><li><strong>Características:</strong> Región de formación estelar activa, visible a simple vista desde cielos oscuros, hogar de muchas estrellas jóvenes y protoestrellas, famosa por su estructura brillante y oscura que se asemeja a una laguna.</li></ul>')">
-        <img src="img/LAGOON.jpg" alt="Nebulosa de la Laguna" loading="lazy" width="400" height="200">
-        <p>Nebulosa de la Laguna</p>
-    </div>
-    
-
-
-</div>
-
-
-<!-- Lightbox para mostrar la imagen seleccionada -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <div class="lightbox-content" onclick="event.stopPropagation()">
-        <img id="lightbox-image" src="" alt="Imagen Seleccionada">
-        <div id="lightbox-info"></div>
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
-    </div>
-</div>
-
-
-
-    </section>
-
-<!-- SECCIÓN DE PUBLICA TUS FOTOS -->
-<section class="publish-section" id="publica-tus-fotos">
-    <div class="publish-content">
-        <h3>Comparte tu Visión del Cosmos</h3>
-        <p>¡Únete a nuestra comunidad de astrofotógrafos! Aquí puedes ver y compartir capturas del cielo estrellado.</p>
-        
-        <form id="upload-form" action="php/upload.php" method="post" enctype="multipart/form-data">
-            <input type="text" name="username" placeholder="Tu nombre" required>
-            <input type="file" name="astrofoto" required>
-            <textarea name="description" placeholder="Describe tu foto (máximo 300 caracteres)" required maxlength="300"></textarea>
-            <button type="submit">Subir Foto</button>
-        </form>
-
-        <div class="photo-forum">
-            <h4>Astrofotografía de la comunidad</h4>
-            <div class="forum-gallery" id="user-gallery">
-                <!-- Aquí se mostrarán las fotos subidas por los usuarios -->
-                <?php
-                // Conexión a la base de datos
-                $servername = "localhost"; 
-                $username = "root"; 
-                $password = ""; 
-                $dbname = "astroveloxer"; 
-
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                if ($conn->connect_error) {
-                    die("Conexión fallida: " . $conn->connect_error);
-                }
-
-                $sql = "SELECT username, description, filepath FROM fotos ORDER BY upload_time DESC";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo '<div class="forum-item">';
-                        echo '<img src="' . $row["filepath"] . '" alt="Foto de usuario" loading="lazy" width="300" height="200" class="user-photo" onclick="openUserLightbox(this, \'' . $row["description"] . '\')">';
-                        echo '<p>' . $row["description"] . '<br><em>Compartido por ' . $row["username"] . '</em></p>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo "<p>No se han subido fotos aún.</p>";
-                }
-
-                $conn->close();
-                ?>
+        <div class="row" data-scroll-animation>
+            <div class="image" data-scroll-animation>
+                <img src="<?= base_url('images/secret.jpg') ?>" alt="nosotros" width="430px">
+            </div>
+            <div class="content" data-scroll-animation>
+                <p>Desde siempre, la humanidad ha mirado al cielo en busca de respuestas. Las estrellas y planetas nos recuerdan lo vasto y misterioso que es el universo.</p>
+                <p>La astronomía es la ciencia que estudia el cosmos, mientras que la astrofotografía es el arte de capturar su belleza en imágenes. Juntas, nos permiten explorar y entender el universo.</p>
+                <p>Mirar hacia arriba es una invitación a descubrir y capturar la maravilla del cielo nocturno.</p>
             </div>
         </div>
+    </section>
+
+    <!-- SECCIÓN "Cómo Iniciar en Astrofotografía" -->
+    <section class="como-iniciar" id="como-iniciar">
+       
+
+        <div class="announcement-yo" data-scroll-animation>
+            <button class="reveal-button" onclick="toggleText()" data-scroll-animation>Consejos de un astrofotógrafo</button>
+            
+            <div id="hidden-text" class="hidden-text">
+                <p>A lo largo de mi viaje en la astrofotografía, he enfrentado frustraciones y desafíos que parecían no tener solución.</p>
+                <p>He creado esta página para que tú no tengas que pasar por lo mismo. Aquí te guiaré en los aspectos esenciales para que inicies y avances en este fascinante universo de la astrofotografía.</p>
+                <p>Con el tiempo, muchas personas se han acercado a mí con preguntas como: "¿Qué tipo de telescopio debería elegir?", "¿Cómo puedo tomar fotos como las tuyas?" o "Compré un telescopio, pero no logro ver nada". Este espacio está dedicado a responder esas preguntas y a ayudarte a descubrir la realidad y la maravilla de comenzar en la astrofotografía.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro-astroveloxer" data-scroll-animation>
+        <h2>¿Qué es Astroveloxer?</h2>
+        <p data-scroll-animation>
+            Astroveloxer es una plataforma creada para explorar, enseñar y compartir el arte de observar el cielo.  
+            Aquí aprenderás astrofotografía desde cero, con guías reales, manuales personales y experiencias auténticas.
+        </p>
+        <p data-scroll-animation>
+            Todas las imágenes que verás a continuación han sido capturadas por el propio equipo de Astroveloxer.
+            Cada una guarda una historia y una noche de observación.
+        </p>
+        <p class="quote" data-scroll-animation>"Somos el universo contemplándose a sí mismo."</p>
+    </section>
+
+    <p class="gallery-note" data-scroll-animation>Haz clic en cualquier imagen para conocer más detalles sobre cada objeto celeste.</p>
+
+    <!-- Galería de imágenes -->
+    <div class="image-gallery" data-scroll-animation>
+        <div class="image-item galaxia" onclick="showImage('<?= base_url('images/BD3E5271-1BBC-4657-8336-3CC50B5EB838.jpg') ?>', '<ul><li><strong>Nombre:</strong> Galaxia de la Aguja (Caldwell 38) (NGC 4565)</li><li><strong>Distancia:</strong> 40 millones de años luz</li><li><strong>Magnitud aparente:</strong> 9.6</li><li><strong>Constelación:</strong> Coma Berenices</li><li><strong>Tipo de objeto:</strong> Galaxia espiral</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/BD3E5271-1BBC-4657-8336-3CC50B5EB838.jpg') ?>" alt="Galaxia de la Aguja" loading="lazy" width="400" height="200">
+            <p>Galaxia de la Aguja</p>
+        </div>
+
+        <div class="image-item galaxia" onclick="showImage('<?= base_url('images/BODE_ASTROVELOXER (1).jpg') ?>', '<ul><li><strong>Nombre:</strong> Galaxia de Bode (M81) y Galaxia del Cigarro (M82)</li><li><strong>Distancia:</strong> 12 millones de años luz (ambas galaxias)</li><li><strong>Magnitud aparente:</strong> M81 (6.9), M82 (8.4)</li><li><strong>Constelación:</strong> Osa Mayor</li><li><strong>Tipo de objeto:</strong> M81: Galaxia espiral, M82: Galaxia irregular y galaxia con brote estelar</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/BODE_ASTROVELOXER (1).jpg') ?>" alt="Galaxia de Bode y Cigarro" loading="lazy" width="400" height="200">
+            <p>Galaxia de Bode y Galaxia del Cigarro</p>
+        </div>
+
+        <div class="image-item planeta" onclick="showImage('<?= base_url('images/jup11.jpg') ?>', '<ul><li><strong>Nombre:</strong> Júpiter</li><li><strong>Distancia media del Sol:</strong> 778 millones de km</li><li><strong>Diámetro:</strong> 142,984 km</li><li><strong>Tipo de objeto:</strong> Planeta gigante gaseoso</li><li><strong>Características:</strong> El planeta más grande del Sistema Solar, famoso por su Gran Mancha Roja y sus 79 lunas conocidas, incluyendo las cuatro lunas galileanas: Ío, Europa, Ganimedes y Calisto</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/jup11.jpg') ?>" alt="Júpiter" loading="lazy" width="400" height="200">
+            <p>Júpiter</p>
+        </div>
+
+        <div class="image-item luna" onclick="showImage('<?= base_url('images/lun_Original Copy (1).JPG') ?>', '<ul><li><strong>Nombre:</strong> La Luna</li><li><strong>Distancia media de la Tierra:</strong> 384,400 km</li><li><strong>Diámetro:</strong> 3,474.8 km</li><li><strong>Tipo de objeto:</strong> Satélite natural</li><li><strong>Características:</strong> Único satélite natural de la Tierra, presenta fases debido a su órbita alrededor de la Tierra, con una superficie marcada por cráteres, mares lunares y montañas</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/lun_Original Copy (1).JPG') ?>" alt="La Luna" loading="lazy" width="400" height="200">
+            <p>La Luna</p>
+        </div>
+
+        <div class="image-item galaxia" onclick="showImage('<?= base_url('images/M101_ASTROVELOXER (1).jpg') ?>', '<ul><li><strong>Nombre:</strong> Galaxia del Molinete (M101)</li><li><strong>Distancia:</strong> 21 millones de años luz</li><li><strong>Magnitud aparente:</strong> 7.9</li><li><strong>Constelación:</strong> Osa Mayor</li><li><strong>Tipo de objeto:</strong> Galaxia espiral</li><li><strong>Características:</strong> Una de las galaxias espirales más grandes conocidas, con un diámetro de aproximadamente 170,000 años luz</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/M101_ASTROVELOXER (1).jpg') ?>" alt="Galaxia del Molinete" loading="lazy" width="400" height="200">
+            <p>Galaxia del Molinete</p>
+        </div>
+
+        <div class="image-item galaxia" onclick="showImage('<?= base_url('images/NGC4038_ASTROVELOXER.jpg') ?>', '<ul><li><strong>Nombre:</strong> NGC 4038 y NGC 4039 (Galaxias Antennae)</li><li><strong>Distancia:</strong> 60 millones de años luz</li><li><strong>Magnitud aparente:</strong> 10.7</li><li><strong>Constelación:</strong> Corvus</li><li><strong>Tipo de objeto:</strong> Galaxias en colisión</li><li><strong>Características:</strong> Conocidas como las Galaxias Antennae debido a las largas colas de estrellas que se extienden hacia afuera, resultado de la colisión entre ambas galaxias</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/NGC4038_ASTROVELOXER.jpg') ?>" alt="Galaxias Antennae" loading="lazy" width="400" height="200">
+            <p>NGC 4038 y NGC 4039 (Galaxias Antennae)</p>
+        </div>
+
+        <div class="image-item nebulosa" onclick="showImage('<?= base_url('images/ORION-velozeronly~3.jpg') ?>', '<ul><li><strong>Nombre:</strong> Nebulosa de Orión (M42)</li><li><strong>Distancia:</strong> 1,344 años luz</li><li><strong>Magnitud aparente:</strong> 4.0</li><li><strong>Constelación:</strong> Orión</li><li><strong>Tipo de objeto:</strong> Nebulosa de emisión</li><li><strong>Características:</strong> Una de las nebulosas más brillantes en el cielo, visible a simple vista, región de formación estelar activa, hogar de muchas estrellas jóvenes y protoestrellas</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/ORION-velozeronly~3.jpg') ?>" alt="Nebulosa de Orión" loading="lazy" width="400" height="200">
+            <p>Nebulosa de Orión</p>
+        </div>
+
+        <div class="image-item planeta" onclick="showImage('<?= base_url('images/saturn (1).jpg') ?>', '<ul><li><strong>Nombre:</strong> Saturno</li><li><strong>Distancia media del Sol:</strong> 1,429 millones de km</li><li><strong>Diámetro:</strong> 120,536 km</li><li><strong>Tipo de objeto:</strong> Planeta gigante gaseoso</li><li><strong>Características:</strong> Conocido por sus prominentes anillos compuestos de hielo y roca, posee 83 lunas conocidas, siendo Titán la más grande y una de las más interesantes para la exploración</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/saturn (1).jpg') ?>" alt="Saturno" loading="lazy" width="400" height="200">
+            <p>Saturno</p>
+        </div>
+
+        <div class="image-item estrella" onclick="showImage('<?= base_url('images/sunfull_ASTROVELOXER.jpg') ?>', '<ul><li><strong>Nombre:</strong> El Sol</li><li><strong>Distancia media de la Tierra:</strong> 149.6 millones de km (1 Unidad Astronómica)</li><li><strong>Diámetro:</strong> 1,392,700 km</li><li><strong>Tipo de objeto:</strong> Estrella enana amarilla (tipo espectral G2V)</li><li><strong>Características:</strong> Estrella central del Sistema Solar y fuente principal de energía para la Tierra, compuesto principalmente de hidrógeno (74%) y helio (24%), con energía producida a través de la fusión nuclear en su núcleo</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/sunfull_ASTROVELOXER.jpg') ?>" alt="El Sol" loading="lazy" width="400" height="200">
+            <p>El Sol</p>
+        </div>
+
+        <div class="image-item nebulosa" onclick="showImage('<?= base_url('images/LAGOON.jpg') ?>', '<ul><li><strong>Nombre:</strong> Nebulosa de la Laguna (M8) (NGC 6523)</li><li><strong>Distancia:</strong> 4,100 años luz</li><li><strong>Magnitud aparente:</strong> 6.0</li><li><strong>Constelación:</strong> Sagitario</li><li><strong>Tipo de objeto:</strong> Nebulosa de emisión</li><li><strong>Características:</strong> Región de formación estelar activa, visible a simple vista desde cielos oscuros, hogar de muchas estrellas jóvenes y protoestrellas, famosa por su estructura brillante y oscura que se asemeja a una laguna.</li></ul>')" data-scroll-animation>
+            <img src="<?= base_url('images/LAGOON.jpg') ?>" alt="Nebulosa de la Laguna" loading="lazy" width="400" height="200">
+            <p>Nebulosa de la Laguna</p>
+        </div>
     </div>
-</section>
-<!-- Lightbox exclusivo para fotos de usuarios -->
-<div id="userLightbox" class="user-lightbox">
-    <span class="close" onclick="closeUserLightbox()">&times;</span>
-    <img class="user-lightbox-content" id="userLightboxImg">
-    <div id="userLightboxCaption"></div>
-</div>
 
+    <section class="cta-registro" data-scroll-animation>
+        <h2>¿Te apasiona el cielo? Únete a Astroveloxer</h2>
+        <a href="<?= base_url('registro') ?>" class="registro-btn" data-scroll-animation>Crear cuenta</a>
+    </section>
 
-
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="social-links">
-        <a href="https://www.instagram.com/Astroveloxer" target="_blank" class="social-link">
-            <img src="img/instagram-logo.webp" alt="Instagram">
-            <span>Astroveloxer</span>
-        </a>
-    </div>
-    <div class="footer-info">
-        <p>&copy; 2024 Astroveloxer. Todos los derechos reservados.</p>
-    </div>
-</footer>
+    <!-- Footer -->
+    <footer class="footer" data-scroll-animation>
+        <div class="social-links">
+            <a href="https://www.instagram.com/Astroveloxer" target="_blank" class="social-link" data-scroll-animation>
+                <img src="img/instagram-logo.webp" alt="Instagram">
+                <span>Astroveloxer</span>
+            </a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2024 Astroveloxer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
     
-    <script src="astroveloxer.js"></script>
+    <script src="<?= base_url('js/script.js') ?>"></script>
+    
+    <!-- Script para animación de scroll -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, { 
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        document.querySelectorAll('[data-scroll-animation]').forEach(el => {
+            observer.observe(el);
+        });
+    });
+
+    function toggleText() {
+        const hiddenText = document.getElementById('hidden-text');
+        hiddenText.classList.toggle('show');
+    }
+
+    function showImage(src, info) {
+        const lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-content">
+                <img src="${src}" alt="Imagen ampliada">
+                <div id="lightbox-info">${info}</div>
+                <span class="close-btn">&times;</span>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+        
+        const closeBtn = lightbox.querySelector('.close-btn');
+        closeBtn.addEventListener('click', () => {
+            document.body.removeChild(lightbox);
+        });
+        
+        lightbox.style.display = 'flex';
+    }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const starContainer = document.querySelector('.stars');
+    const numStars = 150;  // Número de estrellas
+
+    for (let i = 0; i < numStars; i++) {
+        let star = document.createElement('div');
+        star.className = 'star';
+
+        // Posición aleatoria
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.left = `${Math.random() * 100}vw`;
+
+        // Duración de parpadeo aleatoria
+        star.style.animationDuration = `${Math.random() * 5 + 2}s`;
+
+        starContainer.appendChild(star);
+    }
+});
+
+document.addEventListener("scroll", function() {
+    const scrollPosition = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const body = document.body;
+
+    // Calcular el progreso del desplazamiento en la página (0 a 1)
+    const scrollProgress = scrollPosition / (body.scrollHeight - windowHeight);
+
+    // Ajustar los colores del degradado sin opacidad para evitar el aclarado
+    const colorChange = `linear-gradient(to bottom, 
+        rgb(200, 82, 61),  /* Atardecer más oscuro */
+        rgb(50, 8, 60),    /* Tono de transición más oscuro */
+        rgb(1, 5, 20),     /* Crepúsculo aún más oscuro */
+        rgba(0, 0, 0, 1))`;  /* Noche constante al final */
+
+    body.style.background = colorChange;
+});
+
+function selectCard(cardType) {
+    const celularCard = document.getElementById('card-celular');
+    const telescopioCard = document.getElementById('card-telescopio');
+    
+    // Restablecer todas las cards
+    celularCard.classList.remove('selected');
+    telescopioCard.classList.remove('selected');
+    
+    // Aplicar efectos a la card seleccionada
+    if (cardType === 'celular') {
+        celularCard.classList.add('selected');
+        console.log('Celular card selected'); // Depuración
+    } else if (cardType === 'telescopio') {
+        telescopioCard.classList.add('selected');
+        console.log('Telescopio card selected'); // Depuración
+    }
+}
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.card').forEach(c => {
+            if (c !== card) {
+                c.classList.add('inactive');
+            }
+        });
+        card.classList.remove('inactive');
+    });
+
+    card.addEventListener('mouseleave', () => {
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('inactive'));
+    });
+});
+
+
+function toggleMenu() {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav');
+    
+    burger.classList.toggle('active');
+    nav.classList.toggle('active');
+    console.log('Menu toggled');  // Depuración
+}
+
+
+
+
+
+// Filtros para la galería de imágenes
+const filterButtons = document.querySelectorAll('.filter-buttons button');
+const imageItems = document.querySelectorAll('.image-item');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        imageItems.forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+
+
+
+
+
+
+function showImage(imageSrc, imageInfo) {
+    // Crear un contenedor para el lightbox
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    
+    // Crear el contenido del lightbox
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <img src="${imageSrc}" alt="Imagen seleccionada">
+            <div id="lightbox-info">${imageInfo}</div>
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        </div>
+    `;
+    
+    document.body.appendChild(lightbox);
+    
+    // Mostrar el lightbox
+    lightbox.style.display = 'flex';
+}
+
+function closeLightbox() {
+    const lightbox = document.querySelector('.lightbox');
+    if (lightbox) {
+        lightbox.remove();
+    }
+}
+
+
+
+
+
+function openUserLightbox(img, description) {
+    var lightbox = document.getElementById("userLightbox");
+    var lightboxImg = document.getElementById("userLightboxImg");
+    var captionText = document.getElementById("userLightboxCaption");
+
+    lightbox.style.display = "block";
+    lightboxImg.src = img.src;
+    captionText.innerHTML = description;
+}
+
+function closeUserLightbox() {
+    var lightbox = document.getElementById("userLightbox");
+    lightbox.style.display = "none";
+}
+
+
+
+
+
+
+function toggleSecondaryNav() {
+    const nav = document.querySelector('.secondary-nav');
+    const toggle = document.querySelector('.nav-toggle');
+    nav.classList.toggle('active');
+    toggle.classList.toggle('active');
+}
+
+
+
+
+
+function toggleText() {
+    const textElement = document.querySelector('.hidden-text');
+    if (textElement.style.display === "none" || textElement.style.display === "") {
+        textElement.style.display = "block";
+        setTimeout(() => {
+            textElement.classList.add('show');
+            textElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 10); // Pequeña demora para permitir que la transición funcione
+    } else {
+        textElement.classList.remove('show');
+        setTimeout(() => {
+            textElement.style.display = "none";
+        }, 1000); // Esperar a que termine la transición antes de ocultar
+    }
+}
+
+
+        
+    </script>
 </body>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+/* ============================
+    Configuración General y Variables
+============================ */
+:root {
+    --primary-color: #5fb2ff;
+    --secondary-color: #6A0572;
+    --dark-bg: #1a1a1a;
+    --text-color: #ffffff;
+    --transition-time: 0.3s;
+    --section-spacing: 80px;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: var(--transition-time) linear;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+/* ============================
+    Efecto de Aparición al Scroll
+============================ */
+[data-scroll-animation] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+[data-scroll-animation].in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Excluir títulos del efecto */
+.heading, h1, h2, h3, h4, h5, h6 {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ============================
+    Scrollbar Personalizada
+============================ */
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #1a2a3a;
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #4a91cc;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--dark-bg);
+    border-radius: 10px;
+}
+
+/* ============================
+    Estructura Base
+============================ */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, 
+        #FF7E5F, #6A0572, #030D3D, #000000);
+    background-attachment: fixed;
+    color: var(--text-color);
+}
+
+section {
+    padding: var(--section-spacing) 0;
+    position: relative;
+}
+
+/* ============================
+    Fondo de Estrellas Animado
+============================ */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 3s infinite alternate;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 1.5; }
+}
+
+/* ============================
+    Header y Navegación
+============================ */
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    background-color: rgba(95, 178, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 25px;
+    color: var(--text-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all var(--transition-time) ease;
+}
+
+.login-btn:hover {
+    background-color: var(--primary-color);
+    color: #000000;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* ============================
+    Sección Home/Hero
+============================ */
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.home .content {
+    max-width: 50rem;
+    margin-left: 30px;
+    data-scroll-animation: true;
+}
+
+.home .content h3 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.home .content p {
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: var(--text-color);
+    data-scroll-animation: true;
+}
+
+/* ============================
+    Sección de Anuncio/Texto Revelador
+============================ */
+.announcement-yo {
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 10px;
+    color: var(--text-color);
+    margin: var(--section-spacing) auto;
+    max-width: 900px;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    data-scroll-animation: true;
+}
+
+.announcement-yo p {
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+.hidden-text {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 1s ease, max-height 1s ease;
+    margin-top: 20px;
+    background-color: rgba(153, 153, 153, 0.359);
+    padding: 0 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+}
+
+.hidden-text.show {
+    opacity: 1;
+    max-height: 1000px;
+    padding: 20px 10px;
+    margin-bottom: 40px;
+}
+
+.reveal-button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--text-color);
+    background-color: rgba(100, 100, 255, 0.1);
+    border: 2px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: all 0.5s ease;
+    data-scroll-animation: true;
+}
+
+.reveal-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #6a0dad, #ff1493, #1e90ff, #00fa9a);
+    background-size: 300%;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.reveal-button:hover::before {
+    opacity: 1;
+    filter: blur(5px);
+    animation: glow 1.5s infinite;
+}
+
+@keyframes glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.reveal-button:hover {
+    background-color: rgba(100, 100, 255, 0.3);
+    border-color: var(--text-color);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+/* ============================
+    Sección "El Porqué Ver Hacia Arriba"
+============================ */
+.nosotros .heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 40px;
+}
+
+.nosotros .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    data-scroll-animation: true;
+}
+
+.nosotros .image {
+    flex: 1 1 300px;
+    text-align: center;
+    data-scroll-animation: true;
+}
+
+.nosotros .image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.nosotros .content {
+    flex: 1 1 50%;
+    animation: float 3s ease-in-out infinite;
+    data-scroll-animation: true;
+}
+
+.nosotros .content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin: 0 20px 40px;
+}
+
+/* ============================
+    Encabezados y Texto
+============================ */
+.heading {
+    font-size: 3.5rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.heading::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.heading span {
+    color: var(--primary-color);
+}
+
+/* ============================
+    Sección Intro Astroveloxer
+============================ */
+.intro-astroveloxer {
+    text-align: center;
+    max-width: 900px;
+    margin: 120px auto 80px;
+    padding: 40px;
+    color: var(--text-color);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid rgba(95, 178, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    data-scroll-animation: true;
+}
+
+.intro-astroveloxer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(95, 178, 255, 0.05) 0%, transparent 100%);
+    z-index: -1;
+}
+
+.intro-astroveloxer h2 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.intro-astroveloxer h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.intro-astroveloxer p {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    data-scroll-animation: true;
+}
+
+.intro-astroveloxer .quote {
+    margin: 40px auto 0;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    max-width: 80%;
+    position: relative;
+    padding: 20px;
+    data-scroll-animation: true;
+}
+
+.intro-astroveloxer .quote::before,
+.intro-astroveloxer .quote::after {
+    content: '"';
+    font-size: 2rem;
+    color: rgba(95, 178, 255, 0.3);
+    position: absolute;
+}
+
+.intro-astroveloxer .quote::before {
+    top: 0;
+    left: -10px;
+}
+
+.intro-astroveloxer .quote::after {
+    bottom: -20px;
+    right: -10px;
+}
+
+.gallery-note {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(170, 170, 170, 0.8);
+    margin: -30px auto 60px;
+    max-width: 700px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    data-scroll-animation: true;
+}
+
+/* ============================
+    Galería de Imágenes
+============================ */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: var(--section-spacing) auto;
+    max-width: 1400px;
+    data-scroll-animation: true;
+}
+
+.image-item {
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform var(--transition-time) ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    data-scroll-animation: true;
+}
+
+.image-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.image-item p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================
+    Lightbox para Imágenes
+============================ */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 90%;
+    max-height: 90%;
+    color: var(--text-color);
+}
+
+.lightbox img {
+    max-width: 50%;
+    max-height: 80vh;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+#lightbox-info {
+    max-width: 45%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    overflow-y: auto;
+    max-height: 80vh;
+    padding: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: transform var(--transition-time) ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* ============================
+    CTA de Registro
+============================ */
+.cta-registro {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    margin: var(--section-spacing) auto;
+    max-width: 800px;
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    data-scroll-animation: true;
+}
+
+.cta-registro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.registro-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: all var(--transition-time) ease;
+    data-scroll-animation: true;
+}
+
+.registro-btn:hover {
+    background-color: var(--text-color);
+    color: #000000;
+    box-shadow: 0 0 20px var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* ============================
+    Pie de Página
+============================ */
+.footer {
+    background-color: var(--dark-bg);
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-color);
+    margin-top: var(--section-spacing);
+    data-scroll-animation: true;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: color var(--transition-time) ease;
+    data-scroll-animation: true;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-info {
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin-top: 20px;
+}
+
+/* ============================
+    Animaciones y Efectos
+============================ */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ============================
+    Media Queries para Responsividad
+============================ */
+@media (max-width: 992px) {
+    .home .content h3 {
+        font-size: 3.5rem;
+    }
+    
+    .home .content p {
+        font-size: 1.5rem;
+    }
+    
+    .heading {
+        font-size: 2.8rem;
+    }
+    
+    .nosotros .content p {
+        font-size: 1.2rem;
+    }
+    
+    .lightbox-content {
+        flex-direction: column;
+    }
+    
+    .lightbox img, #lightbox-info {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-spacing: 60px;
+    }
+    
+    .home .content {
+        margin-left: 15px;
+        margin-right: 15px;
+        text-align: center;
+    }
+    
+    .home .content h3 {
+        font-size: 2.8rem;
+    }
+    
+    .nosotros .row {
+        flex-direction: column;
+    }
+    
+    .announcement-yo {
+        padding: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .reveal-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .intro-astroveloxer {
+        margin: 80px auto 60px;
+        padding: 30px 20px;
+    }
+    
+    .intro-astroveloxer h2 {
+        font-size: 2.2rem;
+    }
+    
+    .intro-astroveloxer p {
+        font-size: 1.1rem;
+    }
+    
+    .intro-astroveloxer .quote {
+        font-size: 1.3rem;
+        max-width: 90%;
+    }
+    
+    .gallery-note {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        --section-spacing: 40px;
+    }
+    
+    .top-header {
+        padding: 10px 15px;
+    }
+    
+    .top-header .logo {
+        font-size: 1.4rem;
+    }
+    
+    .heading {
+        font-size: 2.2rem;
+    }
+    
+    .cta-registro h2 {
+        font-size: 2rem;
+    }
+    
+    .image-item {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>
+    <script></script>
 </html>
