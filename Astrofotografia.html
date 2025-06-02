@@ -215,77 +215,7 @@ function toggleMenu() {
 
 
 
-// Filtros para la galería de imágenes
-const filterButtons = document.querySelectorAll('.filter-buttons button');
-const imageItems = document.querySelectorAll('.image-item');
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        imageItems.forEach(item => {
-            if (filter === 'all' || item.classList.contains(filter)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-});
-
-
-
-
-
-
-function showImage(imageSrc, imageInfo) {
-    // Crear un contenedor para el lightbox
-    const lightbox = document.createElement('div');
-    lightbox.classList.add('lightbox');
-    
-    // Crear el contenido del lightbox
-    lightbox.innerHTML = `
-        <div class="lightbox-content">
-            <img src="${imageSrc}" alt="Imagen seleccionada">
-            <div id="lightbox-info">${imageInfo}</div>
-            <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        </div>
-    `;
-    
-    document.body.appendChild(lightbox);
-    
-    // Mostrar el lightbox
-    lightbox.style.display = 'flex';
-}
-
-function closeLightbox() {
-    const lightbox = document.querySelector('.lightbox');
-    if (lightbox) {
-        lightbox.remove();
-    }
-}
-
-
-
-
-
-function openUserLightbox(img, description) {
-    var lightbox = document.getElementById("userLightbox");
-    var lightboxImg = document.getElementById("userLightboxImg");
-    var captionText = document.getElementById("userLightboxCaption");
-
-    lightbox.style.display = "block";
-    lightboxImg.src = img.src;
-    captionText.innerHTML = description;
-}
-
-function closeUserLightbox() {
-    var lightbox = document.getElementById("userLightbox");
-    lightbox.style.display = "none";
-}
 
 
 
